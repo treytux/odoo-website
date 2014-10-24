@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <template id="website_ratings.widget" name="Widget">
+            <div class="ratings" t-att-data-object_id="object_id" t-att-data-object_model="object_model" t-att-data-input_name="input_name">
+                <ul class="list-star-rating list-inline list-unstyled">
+                    <li class="star-rating"><a href="" data-star="1"><i class="fa fa-star"></i></a></li>
+                    <li class="star-rating"><a href="" data-star="2"><i class="fa fa-star"></i></a></li>
+                    <li class="star-rating"><a href="" data-star="3"><i class="fa fa-star"></i></a></li>
+                    <li class="star-rating"><a href="" data-star="4"><i class="fa fa-star"></i></a></li>
+                    <li class="star-rating"><a href="" data-star="5"><i class="fa fa-star"></i></a></li>
+                    <li class="star-rating star-rating-count">(0)</li>
+                </ul>
+            </div>
+        </template>
+
+        <template id="website_ratings.assets_frontend" inherit_id="website.assets_frontend">
+            <xpath expr="//link[@rel='stylesheet'][last()]" position="after">
+                <link rel='stylesheet' href='/website_ratings/static/src/css/website_ratings.css'/>
+            </xpath>
+            <xpath expr="//script[last()]" position="after">
+                <script type="text/javascript" src="/website_ratings/static/src/js/ratings.js"></script>
+            </xpath>
+        </template>
+    </data>
+</openerp>

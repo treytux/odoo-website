@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_website_ratings_ratings,access_website_ratings_ratings,model_website_ratings_ratings,,1,1,1,1
+access_website_ratings_user_rating,access_website_ratings_user_rating,model_website_ratings_user_rating,,1,1,1,1
