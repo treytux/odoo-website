@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+
+        <!--  Resource: product.template -->
+
+        <record id="pt_01" model="product.template">
+            <field name="name">Producto Prueba</field>
+            <field name="type">consu</field>
+            <field name="website_published">True</field>
+        </record>
+
+        <!--  Resource: product.product -->
+
+        <record id="pp_02" model="product.product">
+            <field name="product_tmpl_id" ref="pt_01"/>
+        </record>
+
+    </data>
+</openerp>
