@@ -1,3 +1,8 @@
+```payment_direct_order ```
+====
+Método de pago para crear un pedido directamente al odoo
+
+
 ```website_feature_product_template ```
 ====
 
