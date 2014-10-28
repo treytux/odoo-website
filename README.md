@@ -29,3 +29,8 @@ Método de pago para crear un pedido directamente al odoo
 
 ```website_social_share ```
 ====
+
+
+```website_sale_products_nav ```
+====
+Añade funcionalidades a los listados de productos tales como ordenación, registros por página, etc...
