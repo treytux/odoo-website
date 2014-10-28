@@ -34,7 +34,6 @@
     ],
     'data': [
         # security
-        'security/security.xml',
         'security/ir.model.access.csv',
 
         'views/web_product_gallery.xml',

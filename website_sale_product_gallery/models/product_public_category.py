@@ -29,7 +29,7 @@ _log = logging.getLogger(__name__)
 class GalleryImageProductPublicCategory(models.Model):
     _inherit = "gallery_image"
     _name = "product_public_category.gallery_image"
-    _description = "Gallery Image for product.product"
+    _description = "Gallery Image for product.public.category"
 
     category_id = fields.Many2one('product.public.category', u'Public Category')
 

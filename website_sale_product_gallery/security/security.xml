@@ -2,24 +2,70 @@
 <openerp>
     <data noupdate="0">
 
-        <!-- Usuario publico -->
-        <record id="group_public" model="res.groups">
-            <field name="name">Product Gallery Public User</field>
+        <!-- Acceso para group_user a las imagenes de las categorias publicas -->
+        <record id="product_template_gallery_image_group_user_access" model="ir.model.access">
+            <field name="name">product_template_gallery_image group_user</field>
+            <field name="model_id" ref="model_product_template_gallery_image"/>
+            <field name="group_id" ref="base.group_user"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_create" eval="0"/>
+            <field name="perm_write" eval="0"/>
+            <field name="perm_unlink" eval="0"/>
         </record>
 
-        <!-- Administrador -->
-        <record id="group_administrator" model="res.groups">
-            <field name="name">Product Gallery Administrator</field>
+        <!-- Acceso para group_portal a las imagenes de las categorias publicas -->
+        <record id="product_template_gallery_image_group_portal_access" model="ir.model.access">
+            <field name="name">product_template_gallery_image group_portal</field>
+            <field name="model_id" ref="model_product_template_gallery_image"/>
+            <field name="group_id" ref="base.group_portal"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_create" eval="0"/>
+            <field name="perm_write" eval="0"/>
+            <field name="perm_unlink" eval="0"/>
         </record>
 
-        <!-- Añadir usuario Admin al grupo Product Gallery Administrator  -->
-        <record id="base.user_root" model="res.users">
-            <field name="groups_id" eval="[(4,ref('website_sale_product_gallery.group_administrator'))]"/>
+        <!-- Acceso para group_public a las imagenes de las categorias publicas -->
+        <record id="product_template_gallery_image_group_public_access" model="ir.model.access">
+            <field name="name">product_template_gallery_image group_public</field>
+            <field name="model_id" ref="model_product_template_gallery_image"/>
+            <field name="group_id" ref="base.group_public"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_create" eval="0"/>
+            <field name="perm_write" eval="0"/>
+            <field name="perm_unlink" eval="0"/>
         </record>
 
-        <!-- Añadir usuario Public al grupo Product Gallery Public User  -->
-        <record id="base.public_user" model="res.users">
-            <field name="groups_id" eval="[(4,ref('website_sale_product_gallery.group_public'))]"/>
+        <!-- Acceso para group_user a las imagenes de plantilla de producto -->
+        <record id="product_public_category_gallery_image_group_user_access" model="ir.model.access">
+            <field name="name">product_public_category_gallery_image group_user</field>
+            <field name="model_id" ref="model_product_public_category_gallery_image"/>
+            <field name="group_id" ref="base.group_user"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_create" eval="0"/>
+            <field name="perm_write" eval="0"/>
+            <field name="perm_unlink" eval="0"/>
+        </record>
+
+        <!-- Acceso para group_portal a las imagenes de plantilla de producto -->
+        <record id="product_public_category_gallery_image_group_portal_access" model="ir.model.access">
+            <field name="name">product_public_category_gallery_image group_portal</field>
+            <field name="model_id" ref="model_product_public_category_gallery_image"/>
+            <field name="group_id" ref="base.group_portal"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_create" eval="0"/>
+            <field name="perm_write" eval="0"/>
+            <field name="perm_unlink" eval="0"/>
+        </record>
+
+        <!-- Acceso para group_public a las imagenes de plantilla de producto -->
+        <record id="product_public_category_gallery_image_group_public_access" model="ir.model.access">
+            <field name="name">product_public_category_gallery_image group_public</field>
+            <field name="model_id" ref="model_product_public_category_gallery_image"/>
+            <field name="group_id" ref="base.group_public"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_create" eval="0"/>
+            <field name="perm_write" eval="0"/>
+            <field name="perm_unlink" eval="0"/>
         </record>
 
     </data>
