@@ -34,7 +34,6 @@
     ],
     'data': [
         # data
-        'data/products.xml',
         # security
         # 'security/security.xml',
         # 'security/ir.model.access.csv',
@@ -45,6 +44,7 @@
         # 'views/product_public_category.xml',
     ],
     'demo': [
+        'data/products.xml',
     ],
     'test': [
         'test/test.yml',
