@@ -20,36 +20,25 @@
 ##############################################################################
 
 {
-    'name': 'Website Sale Products Nav',
+    'name': 'Política de Privacidad',
     'category': 'website',
-    'summary': 'Permite ordenar los listados de productos de la tienda online por secuencia [defecto], precio y nombre.',
+    'summary': 'Añade un checkbox al formulario de contacto para aceptar la política de privacidad.',
     'version': '0.1',
     'description': """
     """,
     'author': 'Trey',
     'depends': [
-        'product',
-        'website_sale'
+        'website',
+        'website_crm'
     ],
     'data': [
-        'views/product_categories.xml',
-        # data
-        # security
-        # 'security/security.xml',
-        # 'security/ir.model.access.csv',
-        # 'views/product.xml',
-        # 'views/product_template_gallery_image.xml',
-        # 'views/product_product_gallery_image.xml',
-        # 'views/product_public_category.xml',
+        'views/templates.xml',
     ],
     'demo': [
-        # 'data/products.xml',
     ],
     'test': [
-        # 'test/test.yml',
     ],
     'qweb': [
-        # 'static/src/xml/*.xml',
     ],
     'js': [
     ],

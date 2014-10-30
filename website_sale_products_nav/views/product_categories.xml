@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <!-- Navigation -->
+        <template id="navigation">
+            <t t-if="bins">
+                <div class="products-nav well clearfix mt16 mb16">
+                    <div class="products-nav-order pull-right">
+                        <span class="text-muted">Ordenar por</span>
+                        <a t-att-href="products_nav['default_url']" t-att-class="'active ' + products_nav['order'] if products_nav['orderby'] == '' else products_nav['order']">Sugerencias</a>
+                        <a t-att-href="products_nav['price_url']" t-att-class="'active ' + products_nav['order'] if products_nav['orderby'] == 'price' else products_nav['order']">Precio</a>
+                        <a t-att-href="products_nav['name_url']" t-att-class="'active ' + products_nav['order'] if products_nav['orderby'] == 'name' else products_nav['order']">Nombre</a>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+        <!-- Products -->
+        <template id="products" inherit_id="website_sale.products">
+            <xpath expr="//div[@id='products_grid']/*[1]" position="before">
+                <t t-call="website_sale_products_nav.navigation"/>
+            </xpath>
+        </template>
+
+    </data>
+</openerp>

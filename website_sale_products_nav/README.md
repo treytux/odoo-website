@@ -1,4 +1,4 @@
 Website Sale Products Nav
 =========================
 
-Añade funcionalidades a los listados de productos tales como ordenación, registros por página, etc...
+Permite ordenar los listados de productos de la tienda online por secuencia [defecto], precio y nombre.

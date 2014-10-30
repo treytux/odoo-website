@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!--  Resource: product.template -->
+
+        <record id="pt_01" model="product.template">
+            <field name="name">Producto Prueba 1</field>
+            <field name="type">consu</field>
+            <field name="website_published">True</field>
+        </record>
+
+        <record id="pt_02" model="product.template">
+            <field name="name">Producto Prueba 2</field>
+            <field name="type">consu</field>
+            <field name="website_published">True</field>
+        </record>
+
+        <!--  Resource: product.product -->
+
+        <record id="pp_01" model="product.product">
+            <field name="product_tmpl_id" ref="pt_01"/>
+        </record>
+
+        <record id="pp_02" model="product.product">
+            <field name="product_tmpl_id" ref="pt_02"/>
+        </record>
+
+    </data>
+</openerp>

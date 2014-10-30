@@ -19,41 +19,4 @@
 #
 ##############################################################################
 
-{
-    'name': 'Website Sale Products Nav',
-    'category': 'website',
-    'summary': 'Permite ordenar los listados de productos de la tienda online por secuencia [defecto], precio y nombre.',
-    'version': '0.1',
-    'description': """
-    """,
-    'author': 'Trey',
-    'depends': [
-        'product',
-        'website_sale'
-    ],
-    'data': [
-        'views/product_categories.xml',
-        # data
-        # security
-        # 'security/security.xml',
-        # 'security/ir.model.access.csv',
-        # 'views/product.xml',
-        # 'views/product_template_gallery_image.xml',
-        # 'views/product_product_gallery_image.xml',
-        # 'views/product_public_category.xml',
-    ],
-    'demo': [
-        # 'data/products.xml',
-    ],
-    'test': [
-        # 'test/test.yml',
-    ],
-    'qweb': [
-        # 'static/src/xml/*.xml',
-    ],
-    'js': [
-    ],
-    'css': [
-    ],
-    'installable': True,
-}
+import main

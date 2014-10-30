@@ -48,13 +48,50 @@ class WebsiteSale(openerp.addons.website_sale.controllers.main.website_sale):
                         int(category))]
 
         product_obj = pool.get('product.template')
+        # Order defecto Odoo
+        # 'website_published desc, website_sequence desc'
+        order = 'asc'
+        if 'order' in request.httprequest.args.getlist.im_self:
+            # Comprobamos que el parámetro order de la url es 'asc|desc'
+            order = 'desc' if request.httprequest.args.getlist.im_self['order'] == 'desc' else order
+        order_by = ''
+        search_order = 'website_sequence {1}{2}'.format(
+            order_by,
+            order,
+            ', name asc'
+        )
+        if 'orderby' in request.httprequest.args.getlist.im_self:
+            if request.httprequest.args.getlist.im_self['orderby'] == 'price':
+                order_by = 'price'
+                search_order = 'list_price {1}{2}'.format(
+                    order_by,
+                    order,
+                    ', website_sequence asc, name asc'
+                )
+            elif request.httprequest.args.getlist.im_self['orderby'] == 'name':
+                order_by = 'name'
+                search_order = 'name {1}{2}'.format(
+                    order_by,
+                    order,
+                    ', website_sequence asc'
+                )
         product_ids = product_obj.search(
-            cr, uid, domain, limit=PPG+10,
+            cr, uid, domain, limit=PPG,
+            # bug reportado https://github.com/odoo/odoo/issues/3373
+            # bug aceptado https://github.com/odoo/odoo/commit/93e4e7da6e70f2283d7fa92ff1eda6ec41772de0
+            # cr, uid, domain, limit=PPG+10,
             offset=r.qcontext['pager']['offset'],
-            order='list_price asc, website_published desc, website_sequence desc',
+            order=search_order,
             context=context)
         products = product_obj.browse(cr, uid, product_ids, context=context)
 
         r.qcontext['products'] = products
+        r.qcontext['products_nav'] = {
+            'order': order,
+            'orderby': order_by,
+            'default_url': '{0}?order={1}'.format(request.httprequest.base_url, 'desc' if order == 'asc' and order_by == '' else 'asc'),
+            'price_url': '{0}?orderby=price&order={1}'.format(request.httprequest.base_url, 'desc' if order == 'asc' and order_by == 'price' else 'asc'),
+            'name_url': '{0}?orderby=name&order={1}'.format(request.httprequest.base_url, 'desc' if order == 'asc' and order_by == 'name' else 'asc')
+        }
 
         return r
