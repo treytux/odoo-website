@@ -20,16 +20,15 @@
 ##############################################################################
 
 {
-    'name': 'Política de Privacidad',
+    'name': 'Política de Cookies',
     'category': 'website',
-    'summary': 'Añade un checkbox al formulario de contacto para aceptar la política de privacidad.',
+    'summary': 'Añade una alerta sobre el uso de cookies en el sitio que se oculta al aceptarlo.',
     'version': '0.1',
     'description': """
     """,
     'author': 'Trey',
     'depends': [
-        'website',
-        'website_crm'
+        'website'
     ],
     'data': [
         'views/templates.xml',

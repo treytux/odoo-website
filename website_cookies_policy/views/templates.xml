@@ -2,22 +2,25 @@
 <openerp>
     <data>
 
-        <!-- Privacy Policy -->
-        <template id="privacy_policy" inherit_id="website_crm.contactus_form">
-            <xpath expr="//form/div[@class='form-group'][last()]" position="before">
-                <div t-attf-class="form-group #{error and 'terms' in error and 'has-error' or ''}">
-                    <label class="col-md-3 col-sm-4 control-label" for="terms"></label>
-                    <div class="col-md-7 col-sm-8">
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" name="terms" required="True"/> I have read and accept the <a href="/page/privacy-policy" title="Privacy Policy">Privacy Policy</a>.
-                            </label>
-                        </div>
-                    </div>
-                </div>
+        <!-- Layout -->
+        <template id="layout" inherit_id="website.layout">
+            <!-- Styles -->
+            <xpath expr="//t[@t-call-assets='website.assets_frontend']" position="after">
+                <t t-call-assets="website_cookies_policy.assets"/>
             </xpath>
-            <xpath expr="//form/div/div/button" position="attributes">
-                <attribute name="class">btn btn-primary btn-block</attribute>
+        </template>
+
+        <!-- Assets -->
+        <template id="assets">
+            <link rel='stylesheet' href='/website_cookies_policy/static/src/css/cookies.css' t-ignore="true"/>
+        </template>
+
+        <!-- Cookies Policy -->
+        <template id="cookies_policy" inherit_id="website.layout">
+            <xpath expr="//html/body/div[@id='wrapwrap']" position="inside">
+                <div class="cookies-policy bottom dark">
+                    <div class="cookies-policy-msg">We use cookies both own and 3rd party cookies to offer a better experience in our site. Continue navigating implies acceptance of our <a href="/page/cookies-policy" title="Cookies Policy">Cookies Policy</a>.</div>
+                </div>
             </xpath>
         </template>
 

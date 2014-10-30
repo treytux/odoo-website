@@ -1,4 +1,4 @@
-Política de Privacidad
-======================
+Política de Cookies
+===================
 
-Añade un checkbox al formulario de contacto para aceptar la política de privacidad.
+Añade una alerta sobre el uso de cookies en el sitio que se oculta al aceptarlo.

@@ -1,13 +1,13 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* website_crm_terms
+# 	* website_cookies_policy
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-30 17:02+0000\n"
-"PO-Revision-Date: 2014-10-30 18:09+0100\n"
+"POT-Creation-Date: 2014-10-30 20:51+0000\n"
+"PO-Revision-Date: 2014-10-30 21:52+0100\n"
 "Last-Translator: Jorge <jcamacho@trey.es>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,12 +16,16 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 1.5.4\n"
 
-#. module: website_crm_terms
-#: view:website:website.contactus
-msgid "I have read and accept the"
-msgstr "He leído y acepto la"
+#. module: website_cookies_policy
+#: view:website:website.layout
+msgid "Cookies Policy"
+msgstr "Política de Cookies"
 
-#. module: website_crm_terms
-#: view:website:website.contactus
-msgid "Privacy Policy"
-msgstr "Política de Privacidad"
+#. module: website_cookies_policy
+#: view:website:website.layout
+msgid ""
+"We use cookies both own and 3rd party cookies to offer a better experience "
+"in our site. Continue navigating implies acceptance of our"
+msgstr ""
+"Usamos cookies propias y de terceros para ofrecer una mejor experiencia en "
+"nuestro sitio. Continuar naveganco implica la aceptación de nuestra"
