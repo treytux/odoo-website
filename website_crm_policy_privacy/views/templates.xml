@@ -10,7 +10,7 @@
                     <div class="col-md-7 col-sm-8">
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" name="terms" required="True"/> I have read and accept the <a href="/privacy-policy" title="Privacy Policy">Privacy Policy</a>.
+                                <input type="checkbox" name="terms" required="True"/> I have read and accept the <a href="/page/privacy-policy" title="Privacy Policy">Privacy Policy</a>.
                             </label>
                         </div>
                     </div>
