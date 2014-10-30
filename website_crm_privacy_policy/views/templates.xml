@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <!-- Privacy Policy -->
+        <template id="privacy_policy" inherit_id="website_crm.contactus_form">
+            <xpath expr="//form/div[@class='form-group'][last()]" position="before">
+                <div t-attf-class="form-group #{error and 'terms' in error and 'has-error' or ''}">
+                    <label class="col-md-3 col-sm-4 control-label" for="terms"></label>
+                    <div class="col-md-7 col-sm-8">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="terms" required="True"/> I have read and accept the <a href="/page/privacy-policy" title="Privacy Policy">Privacy Policy</a>.
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+            <xpath expr="//form/div/div/button" position="attributes">
+                <attribute name="class">btn btn-primary btn-block</attribute>
+            </xpath>
+        </template>
+
+    </data>
+</openerp>
