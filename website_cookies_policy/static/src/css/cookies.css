@@ -2,7 +2,7 @@
    Cookies Message Default Styles
    ========================================================================== */
 .cookies-policy {
-  display: block;
+  display: none;
   float: left;
   left: 0;
   position: fixed;
@@ -13,9 +13,17 @@
   background: rgba(0, 0, 0, 0.8);
   color: #fff;
 }
+.cookies-policy.dark a {
+  color: #fff;
+  text-decoration: underline;
+}
 .cookies-policy.light {
   background: rgba(255, 255, 255, 0.8);
   color: #000;
+}
+.cookies-policy.light a {
+  color: #000;
+  text-decoration: underline;
 }
 .cookies-policy.top {
   top: 0;
@@ -23,9 +31,8 @@
 .cookies-policy.bottom {
   bottom: 0;
 }
-.cookies-policy a {
-  color: #fff;
-  text-decoration: underline;
+.cookies-policy-btn {
+  padding: 15px;
 }
 .cookies-policy-msg {
   text-align: center;
