@@ -2,6 +2,19 @@
 <openerp>
     <data>
 
+        <!-- Layout -->
+        <template id="layout" inherit_id="website.layout">
+            <!-- Styles -->
+            <xpath expr="//t[@t-call-assets='website.assets_frontend']" position="after">
+                <t t-call-assets="website_crm_privacy_policy.assets"/>
+            </xpath>
+        </template>
+
+        <!-- Assets -->
+        <template id="assets">
+            <script src="/website_crm_privacy_policy/static/src/js/scripts.js"></script>
+        </template>
+
         <!-- Privacy Policy -->
         <template id="privacy_policy" inherit_id="website_crm.contactus_form">
             <xpath expr="//form/div[@class='form-group'][last()]" position="before">
@@ -10,7 +23,7 @@
                     <div class="col-md-7 col-sm-8">
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" name="terms" required="True"/> I have read and accept the <a href="/page/privacy-policy" title="Privacy Policy">Privacy Policy</a>.
+                                <input type="checkbox" name="privacy_policy" required="True"/> I have read and accept the <a href="/page/privacy-policy" title="Privacy Policy">Privacy Policy</a>.
                             </label>
                         </div>
                     </div>
