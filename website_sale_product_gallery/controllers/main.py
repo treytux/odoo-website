@@ -2,7 +2,8 @@
 ##############################################################################
 #
 #    Trey, Kilobytes de Soluciones
-#    Copyright (C) 2014-Today Trey, Kilobytes de Soluciones (<http://www.trey.es>).
+#    Copyright (C) 2014-Today Trey, Kilobytes de Soluciones
+#    (<http://www.trey.es>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -41,7 +42,9 @@ class GalleryImage(http.Controller):
     def _get_image_gallery(self, slug):
         if self.models_gallery is None:
             # regeneramos la cache de modelos de galerias
-            self.models_gallery = [model for model_name, model in request.registry.models.items() if model_name.rfind('.gallery_image') != -1]
+            self.models_gallery = [model for model_name, model in
+                                   request.registry.models.items()
+                                   if model_name.rfind('.gallery_image') != -1]
 
         # buscamos slug en los diferentes modelos de imagenes
         for model in self.models_gallery:
@@ -50,7 +53,9 @@ class GalleryImage(http.Controller):
                 return img, model
         return None, None
 
-    @http.route(['/images/<slug>', '/images/<int:max_width>x<int:max_height>/<slug>'], type='http', auth='public')
+    @http.route(['/images/<slug>',
+                 '/images/<int:max_width>x<int:max_height>/<slug>'],
+                type='http', auth='public')
     def images(self, slug, max_width=None, max_height=None, *args, **kwargs):
         cr, context = request.cr, request.context
 
@@ -60,7 +65,9 @@ class GalleryImage(http.Controller):
             return request.not_found()
 
         # leemos imagen
-        [record] = model.read(cr, SUPERUSER_ID, [img[0]], ['name', 'image_path', 'last_update_img'], context=context)
+        [record] = model.read(
+            cr, SUPERUSER_ID, [img[0]],
+            ['name', 'image_path', 'last_update_img'], context=context)
         path_file = record.get('image_path')
         if not path_file:
             return request.not_found()
@@ -68,7 +75,8 @@ class GalleryImage(http.Controller):
         # generamos respuesta
         server_format = misc.DEFAULT_SERVER_DATETIME_FORMAT
         response = Response(mimetype='image/jpg')
-        response.last_modified = datetime.datetime.strptime(record.get('last_update_img'), server_format)
+        response.last_modified = datetime.datetime.strptime(
+            record.get('last_update_img'), server_format)
         response.make_conditional(request.httprequest)
         if response.status_code == 304:
             return response
@@ -82,7 +90,8 @@ class GalleryImage(http.Controller):
 
         # creamos thumb si no existe
         path, file_name = os.path.split(path_file)
-        path_file_thumb = os.path.join(path, '{}x{}'.format(max_width, max_height))
+        path_file_thumb = os.path.join(path,
+                                       '{}x{}'.format(max_width, max_height))
         if not os.path.exists(path_file_thumb):
             os.makedirs(path_file_thumb)
 
