@@ -2,7 +2,8 @@
 ##############################################################################
 #
 #    Trey, Kilobytes de Soluciones
-#    Copyright (C) 2014-Today Trey, Kilobytes de Soluciones (<http://www.trey.es>).
+#    Copyright (C) 2014-Today Trey, Kilobytes de Soluciones
+#    (<http://www.trey.es>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -22,7 +23,8 @@
 {
     'name': 'Website Sale Products Nav',
     'category': 'website',
-    'summary': 'Permite ordenar los listados de productos de la tienda online por secuencia [defecto], precio y nombre.',
+    'summary': 'Permite ordenar los listados de productos de la tienda online '
+               'por secuencia [defecto], precio y nombre.',
     'version': '0.1',
     'description': """
     """,
