@@ -2,7 +2,8 @@
 ##############################################################################
 #
 #    Trey, Kilobytes de Soluciones
-#    Copyright (C) 2014-Today Trey, Kilobytes de Soluciones (<http://www.trey.es>).
+#    Copyright (C) 2014-Today Trey, Kilobytes de Soluciones
+#    (<http://www.trey.es>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -28,7 +29,9 @@ from openerp import models, fields
 class product_template(models.Model):
     _inherit = "product.template"
 
-    public_name = fields.Char(u'Public Name', required=False, translate=True, select=True, help=u'Public name for products in eCommerce')
+    public_name = fields.Char(u'Public Name', required=False, translate=True,
+                              select=True,
+                              help=u'Public name for products in eCommerce')
 
     def create(self, cr, uid, vals, context=None):
         if 'public_name' not in vals:
