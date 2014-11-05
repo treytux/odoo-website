@@ -41,6 +41,10 @@ Donde:
 - object_id: es el id del objecto del tipo object_model sobre el cual valorar
 - input_name: es el nombre del input que se generará para hacer las valoraciones
 
+```website_sale_cart_add_comments ```
+====
+Añade un campo de comentarios para añadirlos al pedido
+
 ```website_sale_disk_images ```
 ====
 
