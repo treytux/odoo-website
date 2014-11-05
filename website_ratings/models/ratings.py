@@ -2,7 +2,8 @@
 ##############################################################################
 #
 #    Trey, Kilobytes de Soluciones
-#    Copyright (C) 2014-Today Trey, Kilobytes de Soluciones (<http://www.trey.es>).
+#    Copyright (C) 2014-Today Trey, Kilobytes de Soluciones
+#    (<http://www.trey.es>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -18,11 +19,7 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from openerp import tools, SUPERUSER_ID
 from openerp.osv import fields, orm
-from openerp.tools.translate import _
-from openerp.tools.mail import plaintext2html
-from openerp.addons.base.ir.ir_mail_server import MailDeliveryException
 from datetime import datetime
 
 import logging
@@ -35,8 +32,10 @@ class Ratings(orm.Model):
         'website_id': fields.many2one('website', string="Website"),
 
         'object_id': fields.integer(u'Id del modelo', select=True),
-        'object_model': fields.char(u'Nombre del modelo', size=255, translate=False),
-        'numbers_of_ratings': fields.integer(u'Número de valoraciones hechas sobre el modelo'),
+        'object_model': fields.char(u'Nombre del modelo', size=255,
+                                    translate=False),
+        'numbers_of_ratings': fields.integer(u'Número de valoraciones hechas '
+                                             u'sobre el modelo'),
         'ratings': fields.float(u'Valoración media del objecto'),
     }
     _defaults = {
@@ -52,7 +51,8 @@ class UserRatings(orm.Model):
         'user_id': fields.many2one('res.users', string="User id"),
 
         'object_id': fields.integer(u'Id del modelo', select=True),
-        'object_model': fields.char(u'Nombre del modelo', size=255, translate=False),
+        'object_model': fields.char(u'Nombre del modelo', size=255,
+                                    translate=False),
         'date_rating': fields.datetime(u'Fecha de la valoración'),
         'rating': fields.float(u'Valoración sobre el objeto del usuario'),
     }
