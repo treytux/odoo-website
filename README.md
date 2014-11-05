@@ -18,6 +18,9 @@ búsquedas y agrupaciones desde el sitio web.
 ```website_improvements ```
 ====
 Módulo de mejoras para Website.
+    - Añade nombre publicos de productos en el website (similar a public
+    category)
+    - Permite configurar los productos por página en el listado de categorias
 
 ```website_ratings ```
 ====
