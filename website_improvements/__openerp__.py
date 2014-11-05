@@ -2,7 +2,8 @@
 ##############################################################################
 #
 #    Trey, Kilobytes de Soluciones
-#    Copyright (C) 2014-Today Trey, Kilobytes de Soluciones (<http://www.trey.es>).
+#    Copyright (C) 2014-Today Trey, Kilobytes de Soluciones
+#    (<http://www.trey.es>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -29,12 +30,14 @@
     'author': 'Trey',
     'depends': [
         'product',
+        'website',
         'website_sale'
     ],
     'data': [
-        # 'views/res_config.xml',
+        'views/res_config.xml',
         'views/product.xml'
     ],
+    #'post_load': 'wsgi_post_load',
     'demo': [
     ],
     'test': [

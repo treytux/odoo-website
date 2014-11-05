@@ -20,15 +20,20 @@
 #
 ##############################################################################
 
-import models
-import controllers
+from openerp import models, fields, api, _
+from openerp.exceptions import Warning
 
-# import logging
-# _log = logging.getLogger(__name__)
+import logging
+_log = logging.getLogger(__name__)
 
 
-# def wsgi_post_load():
-#     from openerp.addons.website_sale.controllers import main
+class Website(models.Model):
+    _inherit = 'website'
 
-#     main.__dict__['PPG'] = 6
-#     _log.info("POST LOAD {}".format(main.__dict__['PPG']))
+    shop_products_per_page = fields.Integer(u'Products per page', default=20)
+
+    @api.one
+    @api.constrains('shop_products_per_page')
+    def _check_seats_limit(self):
+        if self.shop_products_per_page <= 0:
+            raise Warning(_('Products per page must be greater than zero.'))

@@ -21,9 +21,6 @@
 ##############################################################################
 
 from openerp import models, fields
-# from openerp import tools, SUPERUSER_ID
-# from openerp.osv import fields, orm
-# from openerp.tools.translate import _
 
 
 class product_template(models.Model):
