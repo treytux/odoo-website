@@ -32,6 +32,9 @@ from werkzeug.wrappers import Response
 from PIL import Image
 from sys import maxint
 
+import logging
+_log = logging.getLogger(__name__)
+
 
 class GalleryImage(http.Controller):
 
@@ -93,7 +96,12 @@ class GalleryImage(http.Controller):
         path_file_thumb = os.path.join(path,
                                        '{}x{}'.format(max_width, max_height))
         if not os.path.exists(path_file_thumb):
-            os.makedirs(path_file_thumb)
+            try:
+                os.makedirs(path_file_thumb)
+            except:
+                _log.error(u"ERROR creando directorio para galerias <{}>"
+                    .format(slug))
+                return response
 
         path_file_thumb = os.path.join(path_file_thumb, file_name)
         if os.path.exists(path_file_thumb):
