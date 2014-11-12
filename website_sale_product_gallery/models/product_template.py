@@ -2,7 +2,8 @@
 ##############################################################################
 #
 #    Trey, Kilobytes de Soluciones
-#    Copyright (C) 2014-Today Trey, Kilobytes de Soluciones (<http://www.trey.es>).
+#    Copyright (C) 2014-Today Trey, Kilobytes de Soluciones
+#    (<http://www.trey.es>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -19,8 +20,9 @@
 #
 ##############################################################################
 
-from openerp import models, fields, api
-from openerp.addons.website_sale_product_gallery.models.gallery_image import update_sequences_gallery
+from openerp import models, fields
+from openerp.addons.website_sale_product_gallery.models.gallery_image \
+    import update_sequences_gallery
 
 import logging
 _log = logging.getLogger(__name__)
@@ -50,9 +52,11 @@ class GalleryImageTemplate(models.Model):
 class ProductTemplate(models.Model):
     _inherit = "product.template"
 
-    gallery_ids = fields.One2many('product_template.gallery_image', 'product_tmpl_id')
+    gallery_ids = fields.One2many('product_template.gallery_image',
+                                  'product_tmpl_id')
 
     def write(self, cr, uid, ids, vals, context=None):
         r = super(ProductTemplate, self).write(cr, uid, ids, vals, context)
-        update_sequences_gallery(self, cr, uid, ids, 'gallery_ids', 'product_template.gallery_image')
+        update_sequences_gallery(self, cr, uid, ids, 'gallery_ids',
+                                 'product_template.gallery_image')
         return r
