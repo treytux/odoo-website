@@ -68,5 +68,25 @@
             <field name="perm_unlink" eval="0"/>
         </record>
 
+        <!-- Acceso de escritura para el grupo de group_sale_manager -->
+        <record id="product_template_gallery_image_group_sale_manager" model="ir.model.access">
+            <field name="name">product_template_gallery_image group_sale_manager</field>
+            <field name="model_id" ref="model_product_template_gallery_image"/>
+            <field name="group_id" ref="base.group_sale_manager"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_create" eval="1"/>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_unlink" eval="1"/>
+        </record>
+        <record id="product_public_category_gallery_image_group_sale_manager" model="ir.model.access">
+            <field name="name">product_public_category_gallery_image group_sale_manager</field>
+            <field name="model_id" ref="model_product_public_category_gallery_image"/>
+            <field name="group_id" ref="base.group_sale_manager"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_create" eval="1"/>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_unlink" eval="1"/>
+        </record>
+
     </data>
 </openerp>
