@@ -2,7 +2,8 @@
 ##############################################################################
 #
 #    Trey, Kilobytes de Soluciones
-#    Copyright (C) 2014-Today Trey, Kilobytes de Soluciones (<http://www.trey.es>).
+#    Copyright (C) 2014-Today Trey, Kilobytes de Soluciones
+#    (<http://www.trey.es>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -20,7 +21,6 @@
 ##############################################################################
 
 from openerp import models, fields
-from openerp.addons.website_sale_product_gallery.models.gallery_image import update_sequences_gallery
 
 import logging
 _log = logging.getLogger(__name__)
@@ -31,7 +31,8 @@ class GalleryImageProductPublicCategory(models.Model):
     _name = "product_public_category.gallery_image"
     _description = "Gallery Image for product.public.category"
 
-    category_id = fields.Many2one('product.public.category', u'Public Category')
+    category_id = fields.Many2one('product.public.category',
+                                  u'Public Category')
 
     @property
     def object_relation_name(self):
@@ -41,9 +42,13 @@ class GalleryImageProductPublicCategory(models.Model):
 class ProductPublicCategory(models.Model):
     _inherit = "product.public.category"
 
-    gallery_ids = fields.One2many('product_public_category.gallery_image', 'category_id')
+    gallery_ids = fields.One2many('product_public_category.gallery_image',
+                                  'category_id')
 
     def write(self, cr, uid, ids, vals, context=None):
-        r = super(ProductPublicCategory, self).write(cr, uid, ids, vals, context)
-        update_sequences_gallery(self, cr, uid, ids, 'gallery_ids', 'product_public_category.gallery_image')
+        r = super(ProductPublicCategory, self).write(cr, uid, ids, vals,
+                                                     context)
+        self.pool['gallery_image'].update_sequences_gallery(
+            cr, uid, ids, self, 'gallery_ids',
+            'product_public_category.gallery_image')
         return r

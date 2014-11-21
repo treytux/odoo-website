@@ -18,11 +18,24 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
+
+from openerp import fields, api
 from openerp.osv import osv
-from openerp import fields
 
 
 class ProductAttribute(osv.osv):
     _inherit = "product.attribute"
 
     affects_image = fields.Boolean(string=u"Afecta a la imagen del producto")
+
+
+class ProductAttributeValue(osv.osv):
+    _inherit = "product.attribute.value"
+
+    affects_image = fields.Boolean(compute='_compute_affects_image',
+                                   store=True)
+
+    @api.one
+    @api.depends('attribute_id', 'attribute_id.affects_image')
+    def _compute_affects_image(self):
+        self.affects_image = self.attribute_id.affects_image

@@ -37,11 +37,12 @@
         # security
         'security/ir.model.access.csv',
 
-        'views/web_product_gallery.xml',
-        'views/product.xml',
-        'views/product_template_gallery_image.xml',
-        'views/product_product_gallery_image.xml',
-        'views/product_public_category.xml',
+        'views/theme.xml',
+        'views/product_attribute.xml',
+        'views/product_template.xml',
+        #'views/product.xml',
+        #'views/product_product_gallery_image.xml',
+        #'views/product_public_category.xml',
     ],
     'demo': [
     ],

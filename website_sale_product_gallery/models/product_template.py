@@ -21,8 +21,7 @@
 ##############################################################################
 
 from openerp import models, fields
-from openerp.addons.website_sale_product_gallery.models.gallery_image \
-    import update_sequences_gallery
+from .gallery_image import update_sequences_gallery
 
 import logging
 _log = logging.getLogger(__name__)
@@ -34,6 +33,12 @@ class GalleryImageTemplate(models.Model):
     _description = "Gallery Image for product.template"
 
     product_tmpl_id = fields.Many2one('product.template', u'Product Template')
+    attribute_value_ids = fields.Many2many(
+        comodel_name='product.attribute.value',
+        relation='product_template_gallery_image_product_attribute_value_rel',
+        column1='image_id',
+        column2='att_id'
+    )
 
     @property
     def object_relation_name(self):

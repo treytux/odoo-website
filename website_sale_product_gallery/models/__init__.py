@@ -23,5 +23,5 @@
 import product_attribute
 import gallery_image
 import product_template
-import product
 import product_public_category
+import view

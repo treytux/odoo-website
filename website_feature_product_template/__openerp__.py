@@ -22,10 +22,12 @@
 {
     'name': 'website_feature_product_template',
     'category': 'website',
-    'summary': 'website_feature_product_template',
+    'summary': 'Este modulo anade caracteristicas a la plantilla de productos '
+               'y permite busquedas y agrupaciones desde el sitio web.',
     'version': '0.1',
     'description': """
-    Este modulo anade caracteristicas a la plantilla de productos y permite busquedas y agrupaciones desde el sitio web.
+Este modulo anade caracteristicas a la plantilla de productos y permite
+busquedas y agrupaciones desde el sitio web.
     """,
     'author': 'Trey',
     'depends': [

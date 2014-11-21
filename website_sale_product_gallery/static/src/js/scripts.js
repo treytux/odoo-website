@@ -1,78 +1,94 @@
 (function () {
     'use strict';
     $(document).ready(function () {
-        function gallery(product_id, sizes, callback) {
-            // console.log(product_id.val());
-            console.debug("LOADING GALLERY. Product", product_id);
-
-            openerp.jsonRpc('/shop/product/images', 'call', {
-                'product_id': product_id,
-                'sizes': sizes
-            }).then(function(result) {
-                callback(result);
-            });
+        function gallery(product_id, size_small, size_big, callback) {
+            //console.debug("LOADING GALLERY. Product", product_id);
+            openerp.jsonRpc('/images/xhr/product/' + product_id, 'call', {})
+                .then(function(result) {
+                    callback(result, size_small, size_big);
+                }
+            );
         }
 
-        function print_gallery(result) {
-            console.debug("RESULT", result);
+        function gallery_tmpl(product_id, size_small, size_big, callback) {
+            //console.debug("LOADING GALLERY. Product", product_id);
+            openerp.jsonRpc('/images/xhr/tmpl/' + product_id, 'call', {})
+                .then(function(result) {
+                    callback(result, size_small, size_big);
+                }
+            );
+        }
 
-            var images = result['images'];
+        function print_gallery(result, size_small, size_big) {
+            //console.debug("RESULT", result);
+
+            var images = result;
             var nombre_producto = result['product'];
 
             $('.product-gallery').html('');
+
             if (images.length > 0) {
                 $.each(images, function(i, item) {
-                    // console.debug(item);
                     if(i > 0) {
 	                    $('.product-gallery').append(
-	                        '<a href="' + item['original'] + '" title="' + nombre_producto + '" data-gallery="data-gallery">' +
-	                            '<img src="' + item['50x50'] + '" alt="' + nombre_producto + '">' +
+	                        '<a href="/images/' + item + '" title="' + item + '" data-gallery="data-gallery">' +
+	                            '<img src="/images/50x50/' + item + '" alt="' + item + '">' +
 	                        '</a>'
 	                    );
                     } else {
 	                    $('.product-image').html(
-	                        '<a href="' + item['original'] + '" title="' + nombre_producto + '" data-gallery="data-gallery" class="product-image-default">' +
-	                            '<img src="' + item['400x400'] + '" alt="' + nombre_producto + '" class="img img-responsive product_detail_img">' +
+	                        '<a href="/images/' + item + '" title="' + item + '" data-gallery="data-gallery" class="product-image-default">' +
+	                            '<img src="/images/400x400/' + item + '" alt="' + item + '" class="img img-responsive product_detail_img_gallery">' +
 	                        '</a>'
 	                    );
                     }
                 });
-                // $('.big_gallery').attr('src', images[0]['400x350']);
-                // $('.gallery_help_not_found').addClass('hidden');
             } else {
-                // $('.big_gallery').attr('src', '/website_sale_disk_images/static/src/img/not-found.png');
-                console.log('Imagen no encontrada.');
-                // if (result['name']) {
-                //     $('.gallery_help_not_found').removeClass('hidden');
-                //     $('.gallery_help_not_found').find('.name').html(result['name']);
-                //     $('.gallery_help_not_found').find('.path').html(result['path']);
-                //     // console.debug($('.gallery_help_not_found').find('.name'));
-                // }
+                $('.product-image').html(
+                    '<a href="#" title="" data-gallery="data-gallery" class="product-image-default">' +
+                        '<img src="/web/static/src/img/placeholder.png" alt="" class="img img-responsive product_detail_img_gallery">' +
+                    '</a>'
+                );
             }
         }
 
-        // Cargar la galería por defecto
-    	var product_id = $('input.product_id');
-        if (product_id.val()) {
-            gallery(product_id.val(), [[50, 50], [400, 400]], print_gallery);
-        } else {
-            console.debug("no hay product id");
-        }
-
+        // evento cuando se cambia una variante
         $('.oe_website_sale').each(function () {
             var oe_website_sale = this;
 
             $(oe_website_sale).on('change', 'input.js_variant_change, select.js_variant_change', function (ev) {
-                // var ul = $(this).parents('ul.js_add_cart_variants:first');
-                // var parent = ul.closest('.js_product');
-                // var product_id = parent.find('input.product_id').first();
             	var product_id = $('input.product_id');
                 if (product_id.val()) {
-                    gallery(product_id.val(), [[50, 50], [400, 400]], print_gallery);
-                } else {
-                    console.debug("no hay product id");
+                    gallery(product_id.val(), [50, 50], [400, 400], print_gallery);
+                }
+            });
+
+            $(oe_website_sale).on('change', 'input.js_product_change', function (ev) {
+                console.debug("canghe");
+                var product_id = $(this).val();
+                if (product_id) {
+                    gallery(product_id, [50, 50], [400, 400], print_gallery);
                 }
             });
         });
+
+        var product_id = $('input.product_id').val();
+        if (!product_id) {
+            // seleccionamos un producto
+            // if ($('input[name="product_id"]')) {
+            //     var input = $('input[name="product_id"]').get(0);
+
+            //     $(input).prop('checked', true);
+            //     $(input).change();
+            // }
+
+            // seleccionar template
+            var node = $('[data-oe-model="product.template"]');
+            var tmpl_id = $(node).data("oe-id");
+            if (tmpl_id) {
+                gallery_tmpl(tmpl_id, [50, 50], [400, 400], print_gallery);
+            }
+        }
+
     });
 })();

@@ -28,6 +28,8 @@ import hashlib
 from openerp import http, SUPERUSER_ID
 from openerp.tools import misc
 from openerp.http import request
+from openerp.addons.website_sale_product_gallery.models.gallery_image \
+    import _filestorage
 from werkzeug.wrappers import Response
 from PIL import Image
 from sys import maxint
@@ -70,8 +72,9 @@ class GalleryImage(http.Controller):
         # leemos imagen
         [record] = model.read(
             cr, SUPERUSER_ID, [img[0]],
-            ['name', 'image_path', 'last_update_img'], context=context)
-        path_file = record.get('image_path')
+            ['name', 'last_update_img'], context=context)
+
+        path_file = os.path.join(_filestorage(cr), record.get('name'))
         if not path_file:
             return request.not_found()
 
@@ -131,3 +134,17 @@ class GalleryImage(http.Controller):
     def _read_image_data(self, path_file):
         with open(path_file, 'rb') as f:
             return f.read()
+
+    @http.route(['/images/xhr/product/<model("product.product"):product>',
+                 '/images/xhr/tmpl/<model("product.template"):product_tmpl>'],
+                type='json', auth="public", methods=['POST'], website=True)
+    def image_ajax(self, product=None, product_tmpl=None):
+        """
+        Devuelve el nombre de la imagen para el producto pedido
+        """
+        if product:
+            gallery = request.registry['ir.ui.view'].gallery(product)
+        else:
+            gallery = request.registry['ir.ui.view'].gallery_tmpl(product_tmpl)
+
+        return [g.name for g in gallery]
