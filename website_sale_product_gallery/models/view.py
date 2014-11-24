@@ -29,7 +29,7 @@ class View(osv.osv):
     _inherit = "ir.ui.view"
 
     def render(self, cr, uid, id_or_xml_id, values=None, engine='ir.qweb',
-               context=None):
+               context={}):
         cxn = context.copy()
         cxn.update({'get_gallery': self.gallery})
 
