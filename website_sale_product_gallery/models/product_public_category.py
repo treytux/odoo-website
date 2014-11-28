@@ -21,6 +21,7 @@
 ##############################################################################
 
 from openerp import models, fields
+from .gallery_image import update_sequences_gallery
 
 import logging
 _log = logging.getLogger(__name__)
@@ -48,7 +49,6 @@ class ProductPublicCategory(models.Model):
     def write(self, cr, uid, ids, vals, context=None):
         r = super(ProductPublicCategory, self).write(cr, uid, ids, vals,
                                                      context)
-        self.pool['gallery_image'].update_sequences_gallery(
-            cr, uid, ids, self, 'gallery_ids',
-            'product_public_category.gallery_image')
+        update_sequences_gallery(self, cr, uid, ids, 'gallery_ids',
+                                 'product_public_category.gallery_image')
         return r
