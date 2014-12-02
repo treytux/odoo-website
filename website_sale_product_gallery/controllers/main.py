@@ -132,8 +132,16 @@ class GalleryImage(http.Controller):
         return response
 
     def _read_image_data(self, path_file):
-        with open(path_file, 'rb') as f:
-            return f.read()
+        try:
+            with open(path_file, 'rb') as f:
+                return f.read()
+        except:
+            path = os.path.dirname(os.path.abspath(__file__))
+            path = os.path.join(path, '..', 'static', 'src', 'img',
+                                'error.png')
+
+            with open(path, 'rb') as f:
+                return f.read()
 
     @http.route(['/images/xhr/product/<model("product.product"):product>',
                  '/images/xhr/tmpl/<model("product.template"):product_tmpl>'],
