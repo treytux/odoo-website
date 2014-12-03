@@ -44,14 +44,14 @@ class GalleryImageTemplate(models.Model):
     def object_relation_name(self):
         return "product_tmpl_id"
 
-    def compute_name_image(self, name=None, sequence=None):
+    def _compute_name_image(self, name=None, sequence=None):
         """
         Devuelve el nombre de la imagen en función del nombre del objecto
         y su sequencia
         """
         template = self.product_tmpl_id
         name = template.public_name if template.public_name else template.name
-        return super(GalleryImageTemplate, self).compute_name_image(name=name)
+        return super(GalleryImageTemplate, self)._compute_name_image(name=name)
 
 
 class ProductTemplate(models.Model):

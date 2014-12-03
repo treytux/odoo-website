@@ -105,6 +105,17 @@ class GalleryImage(osv.AbstractModel):
         else:
             name_file = u"{}.jpg".format(slugify(name))
 
+        # comprobamos si existe ya una imagen con este nombre
+        count = self.search_count(
+            [(self.object_relation_name, '!=', self.object_relation.id),
+             ('name', '=', name_file)])
+        if count > 0:
+            if sequence > 1:
+                name_file = u"{}_{}-{}.jpg".format(slugify(name), count,
+                                                   sequence)
+            else:
+                name_file = u"{}_{}.jpg".format(slugify(name), count)
+
         return name_file
 
     @api.one
