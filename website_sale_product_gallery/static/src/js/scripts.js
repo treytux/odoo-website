@@ -72,23 +72,26 @@
             });
         });
 
-        var product_id = $('input.product_id').val();
-        if (!product_id) {
-            // seleccionamos un producto
-            // if ($('input[name="product_id"]')) {
-            //     var input = $('input[name="product_id"]').get(0);
 
-            //     $(input).prop('checked', true);
-            //     $(input).change();
-            // }
+        // si hay variantes seleccionamos primero la imagen del template
+        if ($('.js_product_change').length > 0) {
+            var product_id = $('input.product_id').val();
+            if (!product_id) {
+                // seleccionamos un producto
+                // if ($('input[name="product_id"]')) {
+                //     var input = $('input[name="product_id"]').get(0);
 
-            // seleccionar template
-            var node = $('[data-oe-model="product.template"]');
-            var tmpl_id = $(node).data("oe-id");
-            if (tmpl_id) {
-                gallery_tmpl(tmpl_id, [50, 50], [400, 400], print_gallery);
+                //     $(input).prop('checked', true);
+                //     $(input).change();
+                // }
+
+                // seleccionar template
+                var node = $('[data-oe-model="product.template"]');
+                var tmpl_id = $(node).data("oe-id");
+                if (tmpl_id) {
+                    gallery_tmpl(tmpl_id, [50, 50], [400, 400], print_gallery);
+                }
             }
         }
-
     });
 })();
