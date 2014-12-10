@@ -25,6 +25,7 @@ class Website(orm.Model):
 
                 domain = [
                     #('user_id', '=', website.user_id.id),
+                    ('state', '=', 'draft'),
                     ('partner_id', '=', partner.id),
                     ('pricelist_id', '=',
                      partner.property_product_pricelist.id),
