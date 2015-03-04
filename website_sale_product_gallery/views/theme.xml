@@ -85,57 +85,71 @@
         <!-- Scripts Backoffice -->
         <template id="assets_backend" inherit_id="web.assets_backend">
             <xpath expr="." position="inside">
-                <script type="text/javascript" src="/website_sale_product_gallery/static/src/js/website_sale_product_gallery.js"></script>
+                <script type="text/javascript"
+                        src="/website_sale_product_gallery/static/src/js/website_sale_product_gallery.js">
+                </script>
             </xpath>
         </template>
 
         <!-- Scripts FrontOffice -->
         <template id="assets_frontend" inherit_id="website_sale.assets_frontend">
             <xpath expr="//script[last()]" position="after">
-                <script type="text/javascript" src="/website_sale_product_gallery/static/src/js/jquery.blueimp-gallery.min.js"></script>
-                <script type="text/javascript" src="/website_sale_product_gallery/static/src/js/bootstrap-image-gallery.min.js"></script>
-                <script type="text/javascript" src="/website_sale_product_gallery/static/src/js/scripts.js"></script>
+                <script type="text/javascript"
+                        src="/website_sale_product_gallery/static/src/js/jquery.blueimp-gallery.min.js">
+                </script>
+                <script type="text/javascript"
+                        src="/website_sale_product_gallery/static/src/js/bootstrap-image-gallery.min.js">
+                </script>
+                <script type="text/javascript"
+                        src="/website_sale_product_gallery/static/src/js/scripts.js">
+                </script>
             </xpath>
             <xpath expr="//link[last()]" position="after">
-                <link href="/website_sale_product_gallery/static/src/css/blueimp-gallery.min.css" rel="stylesheet"/>
-                <link href="/website_sale_product_gallery/static/src/css/bootstrap-image-gallery.min.css" rel="stylesheet"/>
+                <link href="/website_sale_product_gallery/static/src/css/blueimp-gallery.min.css"
+                      rel="stylesheet"/>
+                <link href="/website_sale_product_gallery/static/src/css/bootstrap-image-gallery.min.css"
+                      rel="stylesheet"/>
             </xpath>
         </template>
 
         <!-- Gallery Modal Markup at the end of page -->
         <template id="gallery_template" inherit_id="website.layout">
-          <xpath expr="//body/*[last()]" position="after">
-            <div id="blueimp-gallery" class="blueimp-gallery" data-use-bootstrap-modal="false">
-                <div class="slides"></div>
-                <h3 class="title"></h3>
-                <a class="prev">‹</a>
-                <a class="next">›</a>
-                <a class="close">×</a>
-                <a class="play-pause"></a>
-                <ol class="indicator"></ol>
-                <div class="modal fade">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" aria-hidden="true">×</button>
-                                <h4 class="modal-title"></h4>
-                            </div>
-                            <div class="modal-body next"></div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default pull-left prev">
-                                    <i class="glyphicon glyphicon-chevron-left"></i>
-                                    Anterior
-                                </button>
-                                <button type="button" class="btn btn-primary next">
-                                    Siguiente
-                                    <i class="glyphicon glyphicon-chevron-right"></i>
-                                </button>
+            <xpath expr="//body/*[last()]" position="after">
+                <div id="blueimp-gallery" class="blueimp-gallery"
+                     data-use-bootstrap-modal="false">
+                    <div class="slides"></div>
+                    <h3 class="title"></h3>
+                    <a class="prev">‹</a>
+                    <a class="next">›</a>
+                    <a class="close">×</a>
+                    <a class="play-pause"></a>
+                    <ol class="indicator"></ol>
+                    <div class="modal fade">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button"
+                                            class="close"
+                                            aria-hidden="true">×</button>
+                                    <h4 class="modal-title"></h4>
+                                </div>
+                                <div class="modal-body next"></div>
+                                <div class="modal-footer">
+                                    <button type="button"
+                                            class="btn btn-default pull-left prev">
+                                        <i class="glyphicon glyphicon-chevron-left"></i>
+                                        Anterior
+                                    </button>
+                                    <button type="button" class="btn btn-primary next">
+                                        Siguiente
+                                        <i class="glyphicon glyphicon-chevron-right"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-          </xpath>
+            </xpath>
         </template>
 
     </data>

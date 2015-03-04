@@ -26,14 +26,20 @@ from openerp.osv import osv
 class ProductAttribute(osv.osv):
     _inherit = "product.attribute"
 
-    affects_image = fields.Boolean(string=u"Afecta a la imagen del producto")
+    affects_image = fields.Boolean(
+        string=u"Active gallery?",
+        help='This attribute active image gallery?'
+    )
 
 
 class ProductAttributeValue(osv.osv):
     _inherit = "product.attribute.value"
 
-    affects_image = fields.Boolean(compute='_compute_affects_image',
-                                   store=True)
+    affects_image = fields.Boolean(
+        compute='_compute_affects_image',
+        store=True,
+        help='This attribute value active image gallery?'
+    )
 
     @api.one
     @api.depends('attribute_id', 'attribute_id.affects_image')

@@ -46,7 +46,6 @@ class GalleryImage(osv.AbstractModel):
     """
     _name = "gallery_image"
     _description = "Gallery Image"
-
     _order = 'sequence'
     _sql_constraints = [('name_uniq', 'unique(name)',
                         _(u"El nombre debe ser único!"))]
@@ -99,12 +98,10 @@ class GalleryImage(osv.AbstractModel):
         """
         name = name or self.object_relation.name
         sequence = sequence or self.sequence
-
         if sequence > 1:
             name_file = u"{}-{}.jpg".format(slugify(name), sequence)
         else:
             name_file = u"{}.jpg".format(slugify(name))
-
         # comprobamos si existe ya una imagen con este nombre
         count = self.search_count(
             [(self.object_relation_name, '!=', self.object_relation.id),
@@ -115,7 +112,6 @@ class GalleryImage(osv.AbstractModel):
                                                    sequence)
             else:
                 name_file = u"{}_{}.jpg".format(slugify(name), count)
-
         return name_file
 
     @api.one
@@ -129,13 +125,11 @@ class GalleryImage(osv.AbstractModel):
     @api.depends('name')
     def _comput_image(self):
         self.image = False
-
         if self.name:
             fs = _filestorage(self.env.cr)
             image_path = os.path.join(fs, self._compute_name_image())
             if not os.path.exists(image_path):
                 return
-
             with open(image_path, 'rb') as f:
                 self.image = base64.b64encode(f.read())
 
@@ -144,13 +138,18 @@ class GalleryImage(osv.AbstractModel):
     def _inverse_image(self):
         fs = _filestorage(self.env.cr)
         name_file = self._compute_name_image()
-
         image_path = os.path.join(fs, name_file)
-
+        if os.path.isfile(image_path):
+            count = 1
+            while not os.path.isfile(image_path):
+                name = u"{}_{}".format(slugify(self.name), count)
+                image_path = os.path.join(fs, name)
+                count += 1
+                name_file = name
+            image_path = os.path.join(fs, name_file)
         # salvamos imagen
         img = Image.open(cStringIO.StringIO(base64.b64decode(self.image)))
         img.save(image_path)
-
         self.write({'name': name_file})
 
     @property
@@ -168,10 +167,8 @@ class GalleryImage(osv.AbstractModel):
 
     def unlink(self, cr, uid, ids, context=None):
         fs = _filestorage(cr)
-
         for img in self.browse(cr, uid, ids, context=context):
             image_path = os.path.join(fs, img.name)
-
             # borramos thumbnails y original
             self._delete_thumbails(image_path)
             try:
@@ -185,13 +182,11 @@ class GalleryImage(osv.AbstractModel):
     def write(self, cr, uid, ids, vals, context=None):
         if 'name' in vals:
             fs = _filestorage(cr)
-
             for gallery in self.browse(cr, uid, ids, context=context):
                 if gallery.name:
                     image_path = os.path.join(fs, gallery.name)
                     self._delete_thumbails(image_path)
                 vals.update({'last_update_img': fields.Datetime.now()})
-
         return super(GalleryImage, self).write(cr, uid, ids, vals, context)
 
     def create(self, cr, uid, vals, context=None):
@@ -205,42 +200,31 @@ def update_sequences_gallery(self, cr, uid, ids, field_gallery,
     """ Actualiza los nombres de una galleria asociada a un object self
     en función de su sequencia """
     fs = _filestorage(cr)
-
-    #gallery_model = self.pool.get(model_gallery_name)
-
     for obj in self.browse(cr, uid, ids):
         fix_images = []
         for image in getattr(obj, field_gallery):
             name_compute = image._compute_name_image(
                 image.object_relation.name, image.sequence)
-
             if name_compute != image.name:
                 image_path = os.path.join(fs, image.name)
                 image._delete_thumbails(image_path)
-
                 fix_images.append((image, name_compute))
-
                 image.name = 'fix_{}_{}'.format(
                     slugify(model_gallery_name), image.id)
-
                 # rename
                 path, file_name = os.path.split(image_path)
                 new_image_path = os.path.join(path, image.name)
-
                 try:
                     os.rename(image_path, new_image_path)
                 except:
                     _log.exception(u"Error actualizando nombre gallery")
-
         if len(fix_images):
             for image, name_compute in fix_images:
                 # rename
                 new_image_path = os.path.join(fs, name_compute)
-
                 try:
                     os.rename(os.path.join(path, image.name), new_image_path)
                 except:
                     _log.exception(u"Error actualizando nombre gallery fixed")
-
                 # write
                 image.write({'name': name_compute})

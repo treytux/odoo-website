@@ -1,17 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-
         <record id="product_attribute_view" model="ir.ui.view">
             <field name="name">product.attribute.form</field>
             <field name="model">product.attribute</field>
             <field name="arch" type="xml">
                 <form>
-                    <label for="name"/> <field name="name"/>
-                    <!-- <label for="value_ids"/> <field name="value_ids"/> -->
-                    <label for="affects_image"/> <field name="affects_image"/>
-                    <label for="type"/> <field name="type"/>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="type"/>
+                        </group>
+                        <group>
+                            <field name="affects_image"/>
+                        </group>
+                    </group>
                 </form>
+            </field>
+        </record>
+
+        <record id="attribute_tree_view" model="ir.ui.view">
+            <field name="name">image.product.attribute.tree</field>
+            <field name="model">product.attribute</field>
+            <field name="inherit_id"
+                   ref="website_sale.attribute_tree_view"/>
+            <field name="arch" type="xml">
+                <field name="type" position="after">
+                    <field name="affects_image"/>
+                </field>
             </field>
         </record>
 

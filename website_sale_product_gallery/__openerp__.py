@@ -34,15 +34,11 @@
         'website_improvements'
     ],
     'data': [
-        # security
         'security/ir.model.access.csv',
-
         'views/theme.xml',
         'views/product_attribute.xml',
         'views/product_template.xml',
-        #'views/product.xml',
-        #'views/product_product_gallery_image.xml',
-        #'views/product_public_category.xml',
+        'views/product_attribute.xml',
     ],
     'demo': [
     ],

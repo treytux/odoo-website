@@ -39,6 +39,9 @@ class GalleryImageTemplate(models.Model):
         column1='image_id',
         column2='att_id'
     )
+    alternative_text = fields.Char(u'Alternative Text', store=True,
+                                   translate=True)
+
 
     @property
     def object_relation_name(self):

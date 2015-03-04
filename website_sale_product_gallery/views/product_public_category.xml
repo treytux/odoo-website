@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-
         <!-- templates -->
-
         <record id="product_public_category_gallery_image_form_view" model="ir.ui.view">
             <field name="name">product_public_category.gallery_image.form.view</field>
             <field name="model">product_public_category.gallery_image</field>
@@ -15,7 +13,6 @@
                 </form>
             </field>
         </record>
-
         <record id="product_public_category_gallery_image_tree_view" model="ir.ui.view">
             <field name="name">product_public_category.gallery_image.tree.view</field>
             <field name="model">product_public_category.gallery_image</field>
@@ -26,6 +23,5 @@
                 </tree>
             </field>
         </record>
-
     </data>
 </openerp>
