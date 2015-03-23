@@ -8,10 +8,5 @@
             action="action_custom_list"
             name="Custom lists"/>
 
-<!--         <menuitem
-            id="menu_wiz_assign_product_tmpl_to_list"
-            action="action_wiz_assign_product_tmpl_to_list"
-            parent="base.menu_base_config"/>
- -->
     </data>
 </openerp>
