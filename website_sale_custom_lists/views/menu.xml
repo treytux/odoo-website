@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <menuitem
+            id="menu_custom_list"
+            parent="base.menu_base_config"
+            action="action_custom_list"
+            name="Custom lists"/>
+
+<!--         <menuitem
+            id="menu_wiz_assign_product_tmpl_to_list"
+            action="action_wiz_assign_product_tmpl_to_list"
+            parent="base.menu_base_config"/>
+ -->
+    </data>
+</openerp>

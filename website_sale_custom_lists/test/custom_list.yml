@@ -1,0 +1,162 @@
+###############################################################################
+# PRUEBA 1: Llamadas al asistente 'Assign product templates to list' sin vaciar
+# previamente el contenido.
+###############################################################################
+-
+    Llamar al asistente para que anada el producto Prueba 01 a la lista 01
+-
+    !python {model: product.template, id: pt_01}: |
+        # Crear un reg del asistente
+        data = {
+            'custom_list_id': ref('custom_list_01'),
+        }
+        wiz = self.env['wiz.assign_product_tmpl_to_list'].with_context(
+            active_ids=[ref('pt_01')]).create(data)
+        wiz.button_accept()
+
+-
+    Comprobar que el producto Prueba 01 se ha insertado una sola vez en la
+    lista 01
+-
+    !python {model: product.template, id: pt_01}: |
+        lines = self.env['custom.list.line'].search([
+            ('custom_list_id', '=', ref('custom_list_01')),
+            ('product_tmpl_id', '=', ref('pt_01'))])
+
+        assert len(lines) == 1, 'La plantilla de producto no esta relacionada con exactamente una lista.'
+
+-
+    Llamar al asistente para que anada los productos Prueba 01 y Prueba 02 a la
+    lista 01
+-
+    !python {model: product.template, id: pt_01}: |
+        # Crear un reg del asistente
+        data = {
+            'custom_list_id': ref('custom_list_01'),
+        }
+        wiz = self.env['wiz.assign_product_tmpl_to_list'].with_context(
+            active_ids=[ref('pt_01'), ref('pt_02')]).create(data)
+        wiz.button_accept()
+
+-
+    Comprobar que el producto Prueba 01 se ha insertado una sola vez en la
+    lista 01
+-
+    !python {model: product.template, id: pt_01}: |
+        lines = self.env['custom.list.line'].search([
+            ('custom_list_id', '=', ref('custom_list_01')),
+            ('product_tmpl_id', '=', ref('pt_01'))])
+
+        assert len(lines) == 1, 'La plantilla de producto no esta relacionada con exactamente una lista.'
+
+-
+    Comprobar que el producto Prueba 02 se ha insertado en la lista 01
+-
+    !python {model: product.template, id: pt_02}: |
+        lines = self.env['custom.list.line'].search([
+            ('custom_list_id', '=', ref('custom_list_01')),
+            ('product_tmpl_id', '=', ref('pt_02'))])
+
+        assert len(lines) == 1, 'La plantilla de producto no esta relacionada con exactamente una lista.'
+
+
+###############################################################################
+# PRUEBA 2: Llamadas al asistente 'Assign product templates to list' vaciando
+# previamente el contenido.
+###############################################################################
+-
+    Llamar al asistente para que anada el producto Prueba 03 a la lista 02
+-
+    !python {model: product.template, id: pt_03}: |
+        # Crear un reg del asistente
+        data = {
+            'custom_list_id': ref('custom_list_02'),
+        }
+        wiz = self.env['wiz.assign_product_tmpl_to_list'].with_context(
+            active_ids=[ref('pt_03')]).create(data)
+        wiz.button_accept()
+
+-
+    Comprobar que el producto Prueba 03 se ha insertado en la lista 02
+-
+    !python {model: product.template, id: pt_03}: |
+        lines = self.env['custom.list.line'].search([
+            ('custom_list_id', '=', ref('custom_list_02')),
+            ('product_tmpl_id', '=', ref('pt_03'))])
+
+        assert len(lines) == 1, 'La plantilla de producto no esta relacionada con exactamente una lista.'
+
+
+-
+    Llamar al asistente para que anada el producto Prueba 01 a la lista 02,
+    limpiando previamente el contenido de la lista
+-
+    !python {model: product.template, id: pt_01}: |
+        # Crear un reg del asistente
+        data = {
+            'custom_list_id': ref('custom_list_02'),
+            'empty_previously': True,
+        }
+        wiz = self.env['wiz.assign_product_tmpl_to_list'].with_context(
+            active_ids=[ref('pt_01')]).create(data)
+        wiz.button_accept()
+
+-
+    Comprobar que el producto Prueba 01 se ha insertado una sola vez en la
+    lista 02
+-
+    !python {model: product.template, id: pt_01}: |
+        lines = self.env['custom.list.line'].search([
+            ('custom_list_id', '=', ref('custom_list_02')),
+            ('product_tmpl_id', '=', ref('pt_01'))])
+
+        assert len(lines) == 1, 'La plantilla de producto no esta relacionada con exactamente una lista.'
+
+-
+    Comprobar que el producto Prueba 03 se ha eliminado de la lista 02
+-
+    !python {model: product.template, id: pt_03}: |
+        lines = self.env['custom.list.line'].search([
+            ('custom_list_id', '=', ref('custom_list_02')),
+            ('product_tmpl_id', '=', ref('pt_03'))])
+
+        assert len(lines) == 0, 'La plantilla de producto no se ha eliminado al limpiar la lista.'
+
+-
+    Llamar al asistente para que anada los productos Prueba 01 y Prueba 02 a la
+    lista 02
+-
+    !python {model: product.template, id: pt_01}: |
+        # Crear un reg del asistente
+        data = {
+            'custom_list_id': ref('custom_list_02'),
+            'empty_previously': True,
+        }
+        wiz = self.env['wiz.assign_product_tmpl_to_list'].with_context(
+            active_ids=[ref('pt_01'), ref('pt_02')]).create(data)
+        wiz.button_accept()
+
+-
+    Comprobar que el producto Prueba 01 se ha insertado una sola vez en la
+    lista 02
+-
+    !python {model: product.template, id: pt_01}: |
+        lines = self.env['custom.list.line'].search([
+            ('custom_list_id', '=', ref('custom_list_02')),
+            ('product_tmpl_id', '=', ref('pt_01'))])
+
+        assert len(lines) == 1, 'La plantilla de producto no esta relacionada con exactamente una lista.'
+
+-
+    Comprobar que el producto Prueba 02 se ha insertado en la lista 02
+-
+    !python {model: product.template, id: pt_02}: |
+        lines = self.env['custom.list.line'].search([
+            ('custom_list_id', '=', ref('custom_list_02')),
+            ('product_tmpl_id', '=', ref('pt_02'))])
+
+        assert len(lines) == 1, 'La plantilla de producto no esta relacionada con exactamente una lista.'
+
+
+
+

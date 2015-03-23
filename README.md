@@ -75,3 +75,7 @@ Permite a un usuario identificado mantener una lista con sus productos favoritos
 ====
 Permite compartir en las redes sociales el contenido de la página que se está mostrando (Twitter, Facebook, Google+, Pinterest y Tumblr).
 
+```website_sale_custom_lists ```
+====
+Permite crear listas personalizadas y relacionarlas con las plantillas de producto.
+
