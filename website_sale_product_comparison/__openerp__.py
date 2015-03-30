@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
-##############################################################################
+###############################################################################
 #
 #    Trey, Kilobytes de Soluciones
-#    Copyright (C) 2014-Today Trey, Kilobytes de Soluciones
-#    (<http://www.trey.es>).
+#    Copyright (C) 2014-Today Trey, Kilobytes de Soluciones <www.trey.es>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -18,34 +17,30 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-##############################################################################
-
+###############################################################################
 {
-    'name': 'Website Sale Product Gallery',
+    'name': 'Web Products Comparison',
     'category': 'website',
-    'summary': 'Galería de imágenes para productos en la tienda online.',
+    'summary': 'Allow ecommerce users to compare their favorite products in a '
+               'list',
     'version': '0.1',
     'description': """
+    Allow ecommerce users to compare their favorite products in a list
     """,
     'author': 'Trey',
     'depends': [
-        'product',
+        'website',
         'website_sale',
-        'website_sale_products_per_page',
     ],
     'data': [
-        'security/ir.model.access.csv',
-        'views/theme.xml',
-        'views/product_attribute.xml',
-        'views/product_template.xml',
-        'views/product_attribute.xml',
+        'views/product_comparison_view.xml',
+        'views/res_config_view.xml',
     ],
     'demo': [
     ],
     'test': [
     ],
     'qweb': [
-        'static/src/xml/*.xml',
     ],
     'js': [
     ],

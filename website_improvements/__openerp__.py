@@ -34,8 +34,8 @@
         'website_sale'
     ],
     'data': [
-        'views/res_config.xml',
-        'views/product.xml'
+        #'views/res_config.xml',
+        #'views/product.xml'
     ],
     #'post_load': 'wsgi_post_load',
     'demo': [
