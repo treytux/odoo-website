@@ -37,7 +37,6 @@
                 openerp.jsonRpc('/shop/wishlist/remove', 'call', {
                     'line_id': $(this).attr('data-wl-item-id')
                 }).then(function(result) {
-console.log(result);
                     if (result['error']) {
                         return;
                     }
