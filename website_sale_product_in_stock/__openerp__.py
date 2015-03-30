@@ -30,7 +30,6 @@
     'depends': [
         'product',
         'website_sale',
-        'website_improvements'
     ],
     'data': [
         # data

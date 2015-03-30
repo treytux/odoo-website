@@ -32,7 +32,6 @@
     'depends': [
         'product',
         'website_sale',
-        'website_improvements'
     ],
     'data': [
         'views/product_categories.xml',

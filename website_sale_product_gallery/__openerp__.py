@@ -31,7 +31,6 @@
     'depends': [
         'product',
         'website_sale',
-        'website_improvements'
     ],
     'data': [
         'security/ir.model.access.csv',

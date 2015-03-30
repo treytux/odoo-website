@@ -79,3 +79,9 @@ Permite compartir en las redes sociales el contenido de la página que se está 
 ====
 Permite crear listas personalizadas y relacionarlas con las plantillas de producto.
 
+```website_sale_product_public_name ```
+====
+Permite poner un nombre distinto a un producto para la tienda online *.
+
+*(esta extraido del modulo website_improvements)
+
