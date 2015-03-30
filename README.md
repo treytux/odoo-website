@@ -15,12 +15,10 @@ Añade un checkbox al formulario de contacto para aceptar la política de privac
 Este módulo añade características a la plantilla de productos y permite
 búsquedas y agrupaciones desde el sitio web.
 
-```website_improvements ```
+```website_improvements (se ha eliminado)```
 ====
-Módulo de mejoras para Website.
-    - Añade nombre publicos de productos en el website (similar a public
-    category)
-    - Permite configurar los productos por página en el listado de categorias
+Se ha eliminado su funcionalidad y se ha reemplazado por los modulos:
+ website_sale_product_public_name y website_sale_product_per_page
 
 ```website_ratings ```
 ====
