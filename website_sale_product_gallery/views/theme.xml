@@ -4,35 +4,34 @@
 
         <!-- Product Gallery Item -->
         <template id="gallery_item">
-            <t t-set="small" t-value="'60x60' if not small else small"></t>
-            <a t-att-href="'/images/' + gallery_image.name" class="product-gallery-item" t-att-title="gallery_image.name" data-gallery="product-gallery">
-                <img t-att-src="'/images/' + small + '/' + gallery_image.name" t-att-alt="gallery_image.name" t-att-title="gallery_image.name"/>
+            <t t-set="thumbnail_size" t-value="'200x200' if not thumbnail_size else thumbnail_size"></t>
+            <t t-set="alternative_text" t-value="gallery_image.alternative_text if gallery_image.alternative_text != '' else gallery_image.name"/>
+            <a t-att-href="'/images/' + gallery_image.name" class="product-gallery-item" t-att-title="alternative_text" data-gallery="product-gallery">
+                <img t-att-src="'/images/' + thumbnail_size + '/' + gallery_image.name" t-att-alt="alternative_text" t-att-title="alternative_text" class="img img-responsive"/>
             </a>
         </template>
 
         <!-- Product Gallery -->
         <template id="gallery">
-            <t t-set="show_default" t-value="True if not show_default else show_default"></t>
-            <t t-set="medium" t-value="'600x600' if not medium else medium"></t>
-            <t t-set="small" t-value="'60x60' if not small else small"></t>
-            <t t-if="show_default">
-                <div class="product-image">
-                    <t t-if="gallery and len(gallery) > 0">
-                        <a t-att-href="'/images/' + gallery[0].name" class="" t-att-title="gallery[0].name" data-gallery="product-gallery">
-                            <img t-att-src="'/images/' + medium + '/' + gallery[0].name" class="img img-responsive product_detail_img_gallery" t-att-alt="gallery[0].name" t-att-title="gallery[0].name"/>
-                        </a>
-                    </t>
-                    <t t-if="not gallery">
-                        <a href="#" class="" title="" data-gallery="product-gallery">
-                            <img src="/web/static/src/img/placeholder.png" class="img img-responsive product_detail_img_gallery" alt="" title=""/>
-                        </a>
-                    </t>
-                </div>
-            </t>
+            <t t-set="size" t-value="'600x600' if not size else size"></t>
+            <t t-set="thumbnail_size" t-value="'200x200' if not thumbnail_size else thumbnail_size"></t>
+            <div class="product-image">
+                <t t-if="gallery and len(gallery) > 0">
+                    <t t-set="alternative_text" t-value="gallery[0].alternative_text if gallery[0].alternative_text != '' else gallery[0].name"/>
+                    <a t-att-href="'/images/' + gallery[0].name" class="" t-att-title="alternative_text" data-gallery="product-gallery">
+                        <img t-att-src="'/images/' + size + '/' + gallery[0].name" class="img img-responsive product_detail_img_gallery" t-att-alt="alternative_text" t-att-title="alternative_text"/>
+                    </a>
+                </t>
+                <t t-if="not gallery">
+                    <a href="" class="" title="Image not found" data-gallery="product-gallery">
+                        <img src="/web/static/src/img/placeholder.png" class="img img-responsive product_detail_img_gallery" alt="Image not found" title="Image not found"/>
+                    </a>
+                </t>
+            </div>
             <div class="product-gallery">
                 <t t-if="gallery and len(gallery) > 0">
                     <t t-foreach="gallery" t-as="gallery_image">
-                        <t t-if="(show_default and gallery_image_index > 0) or not show_default">
+                        <t t-if="gallery_image_index > 0">
                             <t t-call="website_sale_product_gallery.gallery_item"/>
                         </t>
                     </t>

@@ -20,7 +20,6 @@
         }
 
         function print_gallery(result, size_small, size_big) {
-            //console.debug("RESULT", result);
 
             var images = result;
             var nombre_producto = result['product'];
@@ -29,23 +28,22 @@
 
             if (images.length > 0) {
                 $.each(images, function(i, item) {
+                    $('.product-image').html(
+                        '<a href="/images/' + item + '" title="' + item + '" data-gallery="data-gallery" class="product-image-default">' +
+                            '<img src="/images/400x400/' + item + '" alt="' + item + '" class="img img-responsive product_detail_img_gallery">' +
+                        '</a>'
+                    );
                     if(i > 0) {
-	                    $('.product-gallery').append(
-	                        '<a href="/images/' + item + '" title="' + item + '" data-gallery="data-gallery">' +
-	                            '<img src="/images/50x50/' + item + '" alt="' + item + '">' +
-	                        '</a>'
-	                    );
-                    } else {
-	                    $('.product-image').html(
-	                        '<a href="/images/' + item + '" title="' + item + '" data-gallery="data-gallery" class="product-image-default">' +
-	                            '<img src="/images/400x400/' + item + '" alt="' + item + '" class="img img-responsive product_detail_img_gallery">' +
-	                        '</a>'
-	                    );
+                        $('.product-gallery').append(
+                            '<a href="/images/' + item + '" title="' + item + '" data-gallery="data-gallery">' +
+                                '<img src="/images/200x200/' + item + '" alt="' + item + '" class="img img-responsive">' +
+                            '</a>'
+                        );
                     }
                 });
             } else {
                 $('.product-image').html(
-                    '<a href="#" title="" data-gallery="data-gallery" class="product-image-default">' +
+                    '<a href="" title="" data-gallery="data-gallery" class="product-image-default">' +
                         '<img src="/web/static/src/img/placeholder.png" alt="" class="img img-responsive product_detail_img_gallery">' +
                     '</a>'
                 );
@@ -57,9 +55,9 @@
             var oe_website_sale = this;
 
             $(oe_website_sale).on('change', 'input.js_variant_change, select.js_variant_change', function (ev) {
-            	var product_id = $('input.product_id');
+                var product_id = $('input.product_id');
                 if (product_id.val()) {
-                    gallery(product_id.val(), [50, 50], [400, 400], print_gallery);
+                    gallery(product_id.val(), [200, 200], [400, 400], print_gallery);
                 }
             });
 
@@ -67,7 +65,7 @@
                 console.debug("canghe");
                 var product_id = $(this).val();
                 if (product_id) {
-                    gallery(product_id, [50, 50], [400, 400], print_gallery);
+                    gallery(product_id, [200, 200], [400, 400], print_gallery);
                 }
             });
         });
@@ -89,7 +87,7 @@
                 var node = $('[data-oe-model="product.template"]');
                 var tmpl_id = $(node).data("oe-id");
                 if (tmpl_id) {
-                    gallery_tmpl(tmpl_id, [50, 50], [400, 400], print_gallery);
+                    gallery_tmpl(tmpl_id, [200, 200], [400, 400], print_gallery);
                 }
             }
         }

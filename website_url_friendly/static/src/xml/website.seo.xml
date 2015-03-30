@@ -1,0 +1,35 @@
+<templates>
+    <t t-name="website_url_friendly.slug_input">
+        <div class="form-horizontal" role="form">
+            <t t-foreach="widget.slugs" t-as="slug">
+                <div class="form-group lang" t-att-data-lang="slug.lang">
+                    <label for="seo_page_keywords" class="col-lg-2 control-label">Slug (<span t-raw="slug.lang"/>):</label>
+                    <div class="col-lg-3 col-sm-4">
+                        <div class="input-group">
+                            <input  type="text" name="slug" class="form-control" maxlength="100"
+                                    t-att-data-lang_default="slug.lang_default"
+                                    t-att-data-slug_now="slug.name"
+                                    t-att-value="slug.name"/>
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">Check</button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-sm-2">
+                        <i class="fa fa-circle-o-notch fa-6 fa-spin slug-loading hide"></i>
+                        <i class="fa fa-check slug-ok hide"> Valid</i>
+                    </div>
+                </div>
+            </t>
+        </div>
+    </t>
+
+    <t t-extend="website.seo_configuration">
+        <t t-jquery=".modal-body" t-operation="append">
+            <section class="slug-form">
+                <h3 class="page-header">4. Slug <small>as will be the url of the page</small></h3>
+                <div class="seo_slugs">Loading...</div>
+            </section>
+        </t>
+    </t>
+</templates>

@@ -22,17 +22,17 @@
 {
     'name': 'Social Share',
     'category': 'website',
-    'summary': 'Compartir contenidos en redes sociales.',
+    'summary': 'Share contents in social networks',
     'version': '0.1',
     'description': """
-    Permite compartir en las redes sociales el contenido de la página que se está mostrando (Twitter, Facebook, Google+, Pinterest y Tumblr).
+    Allow to share current content in social networks (Twitter, Facebook, Google+, Pinterest y Tumblr).
     """,
     'author': 'Trey',
     'depends': [
         'website',
     ],
     'data': [
-        'views/templates.xml',
+        'views/layout.xml',
     ],
     'demo': [
     ],

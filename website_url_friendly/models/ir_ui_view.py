@@ -1,26 +1,55 @@
 # -*- coding: utf-8 -*-
 
+#    Copyright (C) 2015 Benito Roríguez (http://b3ni.es) <brarcos@gmail.com>
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 import logging
-from openerp.addons.website.models.website import slug as slug_website
-from openerp.osv import osv, orm
+
+from openerp import models
+from openerp.addons.website.models import website
+from openerp.addons.web.http import request
 
 logger = logging.getLogger(__name__)
 
 
-def slug(value):
-    logger.info("PEPE")
-    if isinstance(value, orm.browse_record) and hasattr(value, "_custom_slug"):
-        return slug_website(value)
-    return slug_website(value)
+def url_for(path_or_uri, lang=None):
+    url = website.url_for(path_or_uri, lang)
+
+    if url in ('', '/', '/web'):
+        return url
+
+    if url.startswith('http'):
+        return url
+
+    for sw in ('/web/', '/web#', '/usr/', 'mailto', '#'):
+        if url.startswith(sw):
+            return url
+
+    IrHttp = request.registry['ir.http']
+    return IrHttp.url_for(url)
 
 
-class view(osv.osv):
+class UiView(models.Model):
+    _name = "ir.ui.view"
     _inherit = "ir.ui.view"
 
-    # def render(self, cr, uid, id_or_xml_id, values=None, engine='ir.qweb', context=None):
-    #     # overwrite slug method
-    #     if values is None:
-    #         values = dict()
-    #     values.update({'slug': slug})
+    def render(self, cr, uid, id_or_xml_id, values=None, engine='ir.qweb',
+               context=None):
+        if values is None:
+            values = {}
+        values['url_for'] = url_for
 
-    #     return super(view, self).render(cr, uid, id_or_xml_id, values, engine, context)
+        return super(UiView, self).render(cr, uid, id_or_xml_id, values,
+                                          engine, context)

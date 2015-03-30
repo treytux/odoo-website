@@ -1,20 +1,39 @@
 # -*- coding: utf-8 -*-
 
+#    Copyright (C) 2015 Benito Roríguez (http://b3ni.es) <brarcos@gmail.com>
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 {
     "name":     "Website URL Friendly",
     "version":  "1.0",
-    "author":   "Trey S.L.",
-    'website':  "--",
+    "author":   "Benito Rodriguez <brarcos@gmail.com>",
+    'website':  "http://b3ni.es",
     "category": "Website",
+    "summary":  "Add custom urls in the website",
     "description": """
 Website URL Friendly
 ========================================
-    Añade funcionalidad para añadir url amigables a las rutas de website
+Add in the "promote" of website the option to add custom urls
 """,
-    "license":  "AGPL-3",
+    "license":  "GPL-3",
     "depends": ["website"],
     "data": [
+        'views/website_templates.xml',
+        'security/ir.model.access.csv',
     ],
+    'qweb': ['static/src/xml/website.seo.xml'],
     "demo": [],
     'auto_install': False,
     "installable": True,

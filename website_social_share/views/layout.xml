@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="layout" inherit_id="website.layout">
+            <xpath expr="//t[@t-call-assets='website.assets_frontend']" position="after">
+                <script type="text/javascript" src="/website_social_share/static/src/js/social-share.js"></script>
+            </xpath>
+        </template>
+    </data>
+</openerp>

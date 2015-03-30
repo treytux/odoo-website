@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 if (options.tumblr.name) {
                     shareURLs['tumblr'] += '&name=' + encodeURIComponent(options.tumblr.name);
                 }
-                
+
                 if (options.tumblr.description) {
                     shareURLs['tumblr'] += '&description=' + encodeURIComponent(options.tumblr.description);
                 }
@@ -166,11 +166,12 @@ document.addEventListener('DOMContentLoaded', function(){
 
             return this;
         };
-        
+
     })(jQuery);
 
     jQuery(document).ready(function($){
         $('*[data-bind="social-share-buttons"]').each(function(e){
+            // TODO: Check if target attributes exists, otherwise try to get data from other tags/attributes
             var options = {
 
                 twitter: {
