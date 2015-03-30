@@ -19,31 +19,33 @@
 #
 ###############################################################################
 
-
 {
-    'name': 'Social Share',
-    'category': 'website',
-    'summary': 'Share contents in social networks',
-    'version': '0.1',
+    "name": "Website Sale Product Public Name",
+    'version': '1.0',
+    'category': 'Website',
+    'summary': 'Add Public Name in Product Template',
     'description': """
-    Allow to share current content in social networks (Twitter, Facebook, Google+, Pinterest y Tumblr).
+Add field public name in product template
+=========================================
     """,
-    'author': 'Trey',
+    'author': 'Trey Kilobytes de Soluciones (www.trey.es)',
+    'website': 'http://www.trey.es',
     'depends': [
-        'website',
+        'website_sale',
+        'website_sale_products_per_page'
     ],
     'data': [
-        'views/layout.xml',
+        'views/product_view.xml'
     ],
     'demo': [
     ],
     'test': [
     ],
-    'qweb': [
+    'images': [
     ],
-    'js': [
-    ],
-    'css': [
-    ],
+
     'installable': True,
+    'auto_install': False,
+    'application': True,
 }
+
