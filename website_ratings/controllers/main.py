@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-import werkzeug
+# License, author and contributors information in:
+# __openerp__.py file at the root folder of this module.
 
 from openerp import SUPERUSER_ID
 from openerp import http

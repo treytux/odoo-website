@@ -12,20 +12,24 @@ class AssignProductTmplToList(models.TransientModel):
     _name = 'wiz.assign_product_tmpl_to_list'
     _description = 'Assign product templates to list.'
 
-    name = fields.Char(string='Empty')
+    name = fields.Char(
+        string='Empty'
+    )
     custom_list_id = fields.Many2one(
         comodel_name='custom.list',
         string='Custom list',
-        required=True)
+        required=True
+    )
     empty_previously = fields.Boolean(
         string='Empty previously',
         help='If you select this field, the wizard will empty the list before '
-        'adding new template products selected.')
+        'adding new template products selected.'
+    )
 
     @api.multi
     def button_accept(self):
-        ''' Anade las plantillas de producto seleccionadas a la lista elegida.
-        '''
+        """ Anade las plantillas de producto seleccionadas a la lista elegida.
+        """
         product_tmpls = self.env['product.template'].browse(
             self.env.context['active_ids'])
 

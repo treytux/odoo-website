@@ -25,8 +25,8 @@
     'category': 'website',
     'summary': 'Share contents in social networks',
     'version': '0.1',
-    'description': """
-    Allow to share current content in social networks (Twitter, Facebook, Google+, Pinterest y Tumblr).
+    'description': """Allow to share current content in social networks (
+    Twitter, Facebook, Google+, Pinterest y Tumblr).
     """,
     'author': 'Trey',
     'depends': [

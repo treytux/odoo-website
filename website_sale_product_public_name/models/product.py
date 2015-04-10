@@ -9,7 +9,7 @@ class product_template(models.Model):
     _inherit = "product.template"
 
     public_name = fields.Char(
-        u'Public Name',
+        string=u'Public Name',
         required=False,
         translate=True,
         select=True,

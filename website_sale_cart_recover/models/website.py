@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+# License, author and contributors information in:
+# __openerp__.py file at the root folder of this module.
 
 from openerp import SUPERUSER_ID
 from openerp.osv import orm
@@ -24,7 +26,7 @@ class Website(orm.Model):
                         cr, uid, 'website', 'salesteam_website_sales')[1]
 
                 domain = [
-                    #('user_id', '=', website.user_id.id),
+                    # ('user_id', '=', website.user_id.id),
                     ('state', '=', 'draft'),
                     ('partner_id', '=', partner.id),
                     ('pricelist_id', '=',

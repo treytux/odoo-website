@@ -1,26 +1,9 @@
 # -*- coding: utf-8 -*-
-##############################################################################
-#
-#    Trey, Kilobytes de Soluciones
-#    Copyright (C) 2014-Today Trey, Kilobytes de Soluciones (<http://www.trey.es>).
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
+# License, author and contributors information in:
+# __openerp__.py file at the root folder of this module.
+
 import werkzeug
 import openerp.addons.website_sale.controllers.main as main
-
 from openerp import http
 from openerp.http import request
 
@@ -107,24 +90,35 @@ class WebsiteSale(main.website_sale):
             if feat:
                 domain += [('feature_line_ids.value_ids', 'in', ids)]
 
-        keep = QueryURL('/shop', category=category and int(category), search=search, attrib=attrib_list, feat=feat_list)
+        keep = QueryURL('/shop', category=category and int(category),
+                        search=search, attrib=attrib_list, feat=feat_list)
 
         if not context.get('pricelist'):
             pricelist = self.get_pricelist()
             context['pricelist'] = int(pricelist)
         else:
-            pricelist = pool.get('product.pricelist').browse(cr, uid, context['pricelist'], context)
+            pricelist = pool.get('product.pricelist').browse(
+                cr, uid, context['pricelist'], context
+            )
 
         product_obj = pool.get('product.template')
 
         url = "/shop"
-        product_count = product_obj.search_count(cr, uid, domain, context=context)
+        product_count = product_obj.search_count(
+            cr, uid, domain, context=context)
         if search:
             post["search"] = search
         if category:
             url = "/shop/category/%s" % slug(category)
-        pager = request.website.pager(url=url, total=product_count, page=page, step=PPG, scope=7, url_args=post)
-        product_ids = product_obj.search(cr, uid, domain, limit=PPG+10, offset=pager['offset'], order='website_published desc, website_sequence desc', context=context)
+        pager = request.website.pager(
+            url=url, total=product_count, page=page, step=PPG, scope=7,
+            url_args=post
+        )
+        product_ids = product_obj.search(
+            cr, uid, domain, limit=PPG+10, offset=pager['offset'],
+            order='website_published desc, website_sequence desc',
+            context=context
+        )
         products = product_obj.browse(cr, uid, product_ids, context=context)
 
         style_obj = pool['product.style']
@@ -133,20 +127,24 @@ class WebsiteSale(main.website_sale):
 
         category_obj = pool['product.public.category']
         category_ids = category_obj.search(cr, uid, [], context=context)
-        categories = category_obj.browse(cr, uid, category_ids, context=context)
+        categories = category_obj.browse(
+            cr, uid, category_ids, context=context)
         categs = filter(lambda x: not x.parent_id, categories)
 
         attributes_obj = request.registry['product.attribute']
         attributes_ids = attributes_obj.search(cr, uid, [], context=context)
-        attributes = attributes_obj.browse(cr, uid, attributes_ids, context=context)
+        attributes = attributes_obj.browse(
+            cr, uid, attributes_ids, context=context)
 
         features_obj = request.registry['product.template.feature']
         features_ids = features_obj.search(cr, uid, [], context=context)
         features = features_obj.browse(cr, uid, features_ids, context=context)
 
-        from_currency = pool.get('product.price.type')._get_field_currency(cr, uid, 'list_price', context)
+        from_currency = pool.get('product.price.type')._get_field_currency(
+            cr, uid, 'list_price', context)
         to_currency = pricelist.currency_id
-        compute_currency = lambda price: pool['res.currency']._compute(cr, uid, from_currency, to_currency, price, context=context)
+        compute_currency = lambda price: pool['res.currency']._compute(
+            cr, uid, from_currency, to_currency, price, context=context)
 
         values = {
             'search': search,

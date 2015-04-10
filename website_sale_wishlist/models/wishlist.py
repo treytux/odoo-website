@@ -9,10 +9,12 @@ class WishlistLine(models.Model):
 
     wishlist_id = fields.Many2one(
         comodel_name='wishlist',
-        string='Wishlist')
+        string='Wishlist'
+    )
     product_tmpl_id = fields.Many2one(
         comodel_name='product.template',
-        string='Product template')
+        string='Product template'
+    )
     added_date = fields.Datetime(
         string='Added date',
         default=lambda this: fields.Datetime.now()
@@ -24,11 +26,14 @@ class Wishlist(models.Model):
 
     website_id = fields.Many2one(
         comodel_name='website',
-        string='Website')
+        string='Website'
+    )
     user_id = fields.Many2one(
         comodel_name='res.users',
-        string='User')
+        string='User'
+    )
     line_ids = fields.One2many(
         comodel_name='wishlist.line',
         inverse_name='wishlist_id',
-        string='Lines')
+        string='Lines'
+    )

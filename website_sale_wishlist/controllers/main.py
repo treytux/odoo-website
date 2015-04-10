@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
 # License, author and contributors information in:
 # __openerp__.py file at the root folder of this module.
+
 import openerp.addons.website_sale.controllers.main as main
 from openerp import http
 from openerp.http import request
 import logging
+
 _log = logging.getLogger(__name__)
 
 
@@ -48,9 +50,9 @@ class WebsiteSaleWishlist(http.Controller):
     @http.route(['/shop/wishlist'], type='http', auth='public',
                 methods=['GET'], website=True)
     def wishlist_list(self):
-        '''
+        """
         Obtiene la lista de deseos para un usuario en el sitio web indicado
-        '''
+        """
         env = request.env
         wl = env['wishlist'].sudo().search([
             ('website_id', '=', request.website.id),
@@ -63,10 +65,10 @@ class WebsiteSaleWishlist(http.Controller):
     @http.route(['/shop/wishlist/add'], type='json', auth='public',
                 methods=['POST'], website=True)
     def wishlist_set(self, product_tmpl_id):
-        '''
+        """
         Añade un producto a la lista de deseos del usuario en el sitio web
         indicado
-        '''
+        """
         env = request.env
         wl = env['wishlist'].sudo().search([
             ('website_id', '=', request.website.id),
@@ -97,10 +99,10 @@ class WebsiteSaleWishlist(http.Controller):
     @http.route(['/shop/wishlist/remove'], type='json', auth='public',
                 methods=['POST'], website=True)
     def wishlist_remove(self, line_id):
-        '''
+        """
         Elimina un producto de la lista de deseos del usuario en el sitio web
         indicado
-        '''
+        """
         response = {}
         env = request.env
         try:
@@ -125,9 +127,9 @@ class WebsiteSaleWishlist(http.Controller):
     @http.route(['/shop/wishlist/empty'], type='json', auth='public',
                 methods=['POST'], website=True)
     def wishlist_empty(self):
-        '''
+        """
         Vacia la lista de deseos del usuario en el sitio web indicado
-        '''
+        """
         env = request.env
         wl = env['wishlist'].sudo().search([
             ('website_id', '=', request.website.id),
