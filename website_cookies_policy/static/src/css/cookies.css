@@ -2,7 +2,7 @@
    Cookies Message Default Styles
    ========================================================================== */
 .cookies-policy {
-  display: none;
+  display: none !important;
   float: left;
   left: 0;
   position: fixed;
