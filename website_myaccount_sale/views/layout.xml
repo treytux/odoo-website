@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <template id="menu" inherit_id="website_myaccount.menu">
+            <xpath expr="//li[@role='presentation'][last()]" position="after">
+                <li role="presentation" t-att-class="'active' if currentOption == 'orders' else ''"><a href="/myaccount/orders">Orders</a></li>
+            </xpath>
+        </template>
+
+        <template id="orders">
+            <t t-call="website.layout">
+                <div id="wrap" class="js_sale">
+                    <div class="oe_structure"/>
+                    <div class="container myaccount-page mt32">
+                        <div class="row">
+                            <t t-call="website_myaccount.menu">
+                                <t t-set="currentOption" t-value="'orders'"/>
+                            </t>
+                            <div class="col-sm-9 myaccount-dashboard">
+                                <h1>Orders</h1>
+                                <table class="table table-striped table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Order</th>
+                                            <th>Date</th>
+                                            <th>Shipping</th>
+                                            <th>Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <t t-foreach="orders" t-as="order">
+                                            <tr>
+                                                <td><span t-field="order.name"/></td>
+                                                <td><span t-field="order.date_order"/></td>
+                                                <td>Shipping</td>
+                                                <td><span t-field="order.amount_total"/></td>
+                                                <td><a target="_blank" t-att-href="'/report/pdf/sale.report_saleorder/%s' % order.id">Download</a></td>
+                                            </tr>
+                                        </t>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+    </data>
+</openerp>
