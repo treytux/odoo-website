@@ -83,3 +83,8 @@ Permite poner un nombre distinto a un producto para la tienda online *.
 
 *(esta extraido del modulo website_improvements)
 
+```website_sale_product_sequences ```
+====
+Añade secuencia de ordenacion a las variantes de producto
+Secuencias de plantillas y variantes separadas.
+Fuerza el orden de los valores de los productos.

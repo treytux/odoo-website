@@ -17,6 +17,7 @@ class ProductAttribute(osv.osv):
 
 class ProductAttributeValue(osv.osv):
     _inherit = "product.attribute.value"
+    order = 'sequence'
 
     affects_image = fields.Boolean(
         compute='_compute_affects_image',
