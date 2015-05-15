@@ -133,8 +133,8 @@ class GalleryImage(http.Controller):
         Devuelve el nombre de la imagen para el producto pedido
         """
         if product:
-            gallery = request.registry['ir.ui.view'].gallery(product)
+            gallery = request.registry['ir.ui.view'].get_gallery(product)
         else:
-            gallery = request.registry['ir.ui.view'].gallery_tmpl(product_tmpl)
+            gallery = request.registry['ir.ui.view'].get_gallery(product_tmpl)
 
         return [g.name for g in gallery]
