@@ -30,7 +30,6 @@
     'author': 'Trey Kilobytes de Soluciones (www.trey.es)',
     'website': 'http://www.trey.es',
     'depends': [
-        'sale',
         'website_myaccount',
         'learning'
     ],

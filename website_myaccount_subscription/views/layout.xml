@@ -8,7 +8,6 @@
                     t-att-class="'active' if currentOption == 'subscriptions' else ''"><a href="/myaccount/subscriptions">Subscriptions</a></li>
             </xpath>
         </template>
-
         <template id="subscriptions">
             <t t-call="website.layout">
                 <div id="wrap" class="js_sale">
