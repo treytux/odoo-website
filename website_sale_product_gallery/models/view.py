@@ -35,7 +35,11 @@ class View(osv.osv):
                 if [a for a in l.attribute_value_ids if a.id in attr]:
                     lines.append(l)
                     break
-            return list(set(lines))
+            if not lines or len(lines) == 0:
+                return [l for l in obj.gallery_ids
+                        if len(l.attribute_value_ids) == 0]
+            else:
+                return list(set(lines))
         else:
             return []
 

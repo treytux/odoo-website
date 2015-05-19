@@ -36,7 +36,6 @@
     'data': [
         'security/ir.model.access.csv',
         'views/theme.xml',
-        'views/product_attribute.xml',
         'views/product_template.xml',
         'views/product_attribute.xml',
     ],
