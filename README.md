@@ -28,9 +28,9 @@ En cualquier parte de tu template website añadir, por ejemplo:
 
 ```
 <t t-call="website_ratings.widget">
-    <t t-set="object_model">product.product</t>
+    <t t-set="object_model">product.template</t>
     <t t-set="object_id" t-value="product.id"/>
-    <t t-set="input_name">rating_product</t>
+    <t t-set="input_name" t-value="'rating_product_' + str(product.id)"/>
 </t>
 ```
 
@@ -38,6 +38,11 @@ Donde:
 - object_model: es el nombre del modelo odoo sobre el cual hacer las valoraciones
 - object_id: es el id del objecto del tipo object_model sobre el cual valorar
 - input_name: es el nombre del input que se generará para hacer las valoraciones
+
+TODO:
+Reducir el número de peticiones al servidor, solicitando en una sola, los
+rating de todos los objetos de una página, en lugar de una llamada ajax por
+objeto
 
 ```website_sale_cart_add_comments ```
 ====
