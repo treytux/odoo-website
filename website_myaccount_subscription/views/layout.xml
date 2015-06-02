@@ -33,8 +33,9 @@
                                         <t t-foreach="subscriptions"
                                            t-as="subscription">
                                             <tr>
-                                                <td><span
-                                                        t-field="subscription.training_id.name"/></td>
+                                                <td>
+                                                    <a t-attf-href="/curso/#{ slug(subscription.training_id) }" t-esc="subscription.training_id.name"/>
+                                                </td>
                                                 <td><span
                                                         t-field="subscription.date_init"/></td>
                                                 <td><span
