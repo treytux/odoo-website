@@ -4,10 +4,10 @@
 
         <template id="menu" inherit_id="website_myaccount.menu">
             <xpath expr="//li[@role='presentation'][last()]" position="after">
-                <li role="presentation"
-                    t-att-class="'active' if currentOption == 'subscriptions' else ''"><a href="/myaccount/subscriptions">Subscriptions</a></li>
+                <li role="presentation" t-att-class="'active' if currentOption == 'subscriptions' else ''"><a href="/myaccount/subscriptions">Subscriptions</a></li>
             </xpath>
         </template>
+
         <template id="subscriptions">
             <t t-call="website.layout">
                 <div id="wrap" class="js_sale">
@@ -15,38 +15,34 @@
                     <div class="container myaccount-page mt32">
                         <div class="row">
                             <t t-call="website_myaccount.menu">
-                                <!--<t t-set="currentOption"-->
-                                   <!--t-value="'subscriptions'"/>-->
+                                <t t-set="currentOption" t-value="'subscriptions'"/>
                             </t>
-                            <div class="col-sm-9 myaccount-dashboard">
-                                <h1>Subscriptions</h1>
-                                <table class="table table-striped table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>Training</th>
-                                            <th>Date Start</th>
-                                            <th>Date Stop</th>
-                                            <th>Remaining Days</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <t t-foreach="subscriptions"
-                                           t-as="subscription">
+                            <div class="col-sm-9 myaccount-subscriptions">
+                                <ol class="breadcrumb text-uppercase no-links">
+                                    <li><a href="/myaccount">Dashboard</a></li>
+                                    <li class="active">Subscriptions</li>
+                                </ol>
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-hover">
+                                        <thead>
                                             <tr>
-                                                <td>
-                                                    <a t-attf-href="/curso/#{ slug(subscription.training_id) }" t-esc="subscription.training_id.name"/>
-                                                </td>
-                                                <td><span
-                                                        t-field="subscription.date_init"/></td>
-                                                <td><span
-                                                        t-field="subscription.date_end"/></td>
-                                                <td><span
-                                                        t-field="subscription.remaining_days"/></td>
-
+                                                <th style="width: 50%;" class="text-center">Training</th>
+                                                <th style="width: 15%;" class="text-center">Hired on</th>
+                                                <th style="width: 35%;" class="text-center">Expires on</th>
                                             </tr>
-                                        </t>
-                                    </tbody>
-                                </table>
+                                        </thead>
+                                        <tbody>
+                                            <t t-foreach="subscriptions"
+                                               t-as="subscription">
+                                                <tr>
+                                                    <td><a t-attf-href="/curso/#{ slug(subscription.training_id) }" t-esc="subscription.training_id.name"/></td>
+                                                    <td class="text-center"><span t-field="subscription.date_init"/></td>
+                                                    <td class="text-center"><span t-field="subscription.date_end"/> (<span t-field="subscription.remaining_days"/> days)</td>
+                                                </tr>
+                                            </t>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
