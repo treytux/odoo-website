@@ -32,13 +32,25 @@ class MyAccount(http.Controller):
         result = env.user.write(data)
         return {'error': '', 'result': result}
 
-    @http.route(['/myaccount/addresses'],
-                type='http', auth='public', website=True)
-    def addresses(self, container=None, **post):
-        env = request.env
-        partner = self.get_partner_company() or env.user.partner_id
-        shipping = [p for p in partner.child_ids if p.type == 'delivery']
-        invoices = [p for p in partner.child_ids if p.type == 'invoice']
-        return request.website.render('website_myaccount.addresses', {
-            'shipping_address': shipping,
-            'invoice_address': invoices})
+    # def get_partner_company(self):
+    #     user = request.env.user
+    #     if user.partner_id.is_company:
+    #         return user.partner_id
+    #     else:
+    #         partner = user.partner_id
+    #         while partner.parent_id:
+    #             partner = partner.parent_id
+    #             if partner.is_company:
+    #                 return partner
+    #     return None
+
+    # @http.route(['/myaccount/addresses'],
+    #             type='http', auth='public', website=True)
+    # def addresses(self, container=None, **post):
+    #     env = request.env
+    #     partner = self.get_partner_company() or env.user.partner_id
+    #     shipping = [p for p in partner.child_ids if p.type == 'delivery']
+    #     invoices = [p for p in partner.child_ids if p.type == 'invoice']
+    #     return request.website.render('website_myaccount.addresses', {
+    #         'shipping_address': shipping,
+    #         'invoice_address': invoices})

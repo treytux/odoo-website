@@ -20,7 +20,7 @@
                         <ul class="nav nav-pills nav-stacked nav-sidebar">
                             <li role="presentation" t-att-class="'active' if currentOption == 'dashboard' else ''"><a href="/myaccount">Dashboard</a></li>
                             <li role="presentation" t-att-class="'active' if currentOption == 'profile' else ''"><a href="/myaccount/profile">Profile</a></li>
-                            <li role="presentation" t-att-class="'active' if currentOption == 'addresses' else ''"><a href="/myaccount/addresses">Addresses</a></li>
+                            <!-- <li role="presentation" t-att-class="'active' if currentOption == 'addresses' else ''"><a href="/myaccount/addresses">Addresses</a></li> -->
                         </ul>
                     </div>
                 </div>
