@@ -111,6 +111,9 @@
                 fb: http://ogp.me/ns/fb#
                 product: http://ogp.me/ns/product#</attribute>
             </xpath>
+            <xpath expr="//body" position="attributes">
+                <attribute name="t-att-class">xmlid</attribute>
+            </xpath>
             <!-- TODO: Check why can't use t-if conditionals on replacing attributes -->
             <!--
             <xpath expr="//head" position="attributes">

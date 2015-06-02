@@ -21,34 +21,18 @@
 ##############################################################################
 
 {
-    'name': 'Website Sale Product Gallery',
+    'name': 'Product Sequences',
     'category': 'website',
-    'summary': 'Galería de imágenes para productos en la tienda online.',
+    'summary': 'Secuencias de plantillas y variantes separadas.',
     'version': '0.1',
     'description': """
+        Secuencias de plantillas y variantes separadas.
+        Fuerza el orden de los valores de los productos.
     """,
-    'author': 'Trey',
-    'depends': [
-        'product',
-        'website_sale',
-        'website_sale_products_per_page',
-    ],
+    'author': 'Trey Kilobytes de Soluciones (www.trey.es)',
+    'depends': ['product', 'website_sale'],
     'data': [
-        'security/ir.model.access.csv',
-        'views/theme.xml',
-        'views/product_template.xml',
-        'views/product_attribute.xml',
-    ],
-    'demo': [
-    ],
-    'test': [
-    ],
-    'qweb': [
-        'static/src/xml/*.xml',
-    ],
-    'js': [
-    ],
-    'css': [
+        'views/product.xml',
     ],
     'installable': True,
 }

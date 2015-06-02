@@ -23,9 +23,9 @@
             <field name="name">image.product.attribute.tree</field>
             <field name="model">product.attribute</field>
             <field name="inherit_id"
-                   ref="website_sale.attribute_tree_view"/>
+                   ref="product.attribute_tree_view"/>
             <field name="arch" type="xml">
-                <field name="type" position="after">
+                <field name="name" position="after">
                     <field name="affects_image"/>
                 </field>
             </field>

@@ -35,12 +35,12 @@ document.addEventListener('DOMContentLoaded', function(){
         $('.cookies-policy-btn').on('click', function(e){
             e.preventDefault();
             setCookie('accept_cookies_policy', 'true', 365);
-            $('.cookies-policy').hide();
+            $('.cookies-policy').removeClass('cookies-policy-show');
         });
 
         // Comprobar si se han aceptado las Cookies
         if( getCookie('accept_cookies_policy') != 'true' ) {
-            $('.cookies-policy').show();
+            $('.cookies-policy').addClass('cookies-policy-show');
         }
 
     });

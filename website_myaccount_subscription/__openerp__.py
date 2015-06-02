@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
-##############################################################################
+###############################################################################
 #
 #    Trey, Kilobytes de Soluciones
-#    Copyright (C) 2014-Today Trey, Kilobytes de Soluciones
-#    (<http://www.trey.es>).
+#    Copyright (C) 2015-Today Trey, Kilobytes de Soluciones <www.trey.es>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -18,37 +17,24 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-##############################################################################
+###############################################################################
 
 {
-    'name': 'Website Sale Product Gallery',
+    'name': 'Website MyAccount Subscription',
+    'summary': 'website',
     'category': 'website',
-    'summary': 'Galería de imágenes para productos en la tienda online.',
-    'version': '0.1',
+    'version': '1.0',
     'description': """
+    Subcription information in my account.
     """,
-    'author': 'Trey',
+    'author': 'Trey Kilobytes de Soluciones (www.trey.es)',
+    'website': 'http://www.trey.es',
     'depends': [
-        'product',
-        'website_sale',
-        'website_sale_products_per_page',
+        'website_myaccount',
+        'learning'
     ],
     'data': [
-        'security/ir.model.access.csv',
-        'views/theme.xml',
-        'views/product_template.xml',
-        'views/product_attribute.xml',
-    ],
-    'demo': [
-    ],
-    'test': [
-    ],
-    'qweb': [
-        'static/src/xml/*.xml',
-    ],
-    'js': [
-    ],
-    'css': [
+        'views/layout.xml'
     ],
     'installable': True,
 }
