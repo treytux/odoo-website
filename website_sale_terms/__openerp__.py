@@ -2,7 +2,7 @@
 ###############################################################################
 #
 #    Trey, Kilobytes de Soluciones
-#    Copyright (C) 2015-Today Trey, Kilobytes de Soluciones <www.trey.es>
+#    Copyright (C) 2014-Today Trey, Kilobytes de Soluciones <www.trey.es>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -15,26 +15,35 @@
 #    GNU Affero General Public License for more details.
 #
 #    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>
 #
 ###############################################################################
 
 {
-    'name': 'Subscriptions',
-    'summary': 'website',
+    'name': 'Aceptación Términos Checkout',
     'category': 'website',
-    'version': '1.0',
+    'summary': 'Añade un checkbox en el proceso de compra para aceptar las '
+               'condiciones de venta y la política de privacidad.',
+    'version': '0.1',
     'description': """
-    Add list of user subscriptions to training/courses to My Account.
     """,
-    'author': 'Trey Kilobytes de Soluciones (www.trey.es)',
-    'website': 'http://www.trey.es',
+    'author': 'Trey',
     'depends': [
-        'website_myaccount',
-        'learning'
+        'website',
+        'website_sale'
     ],
     'data': [
-        'views/layout.xml'
+        'views/templates.xml',
+    ],
+    'demo': [
+    ],
+    'test': [
+    ],
+    'qweb': [
+    ],
+    'js': [
+    ],
+    'css': [
     ],
     'installable': True,
 }

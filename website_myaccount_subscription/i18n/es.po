@@ -1,0 +1,49 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* website_myaccount_subscription
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-06-02 10:51+0000\n"
+"PO-Revision-Date: 2015-06-02 12:52+0100\n"
+"Last-Translator: Trey <info@trey.es>\n"
+"Language-Team: Trey <info@trey.es>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+"Language: es_ES\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+#. module: website_myaccount_subscription
+#: view:website:website_myaccount_subscription.subscriptions
+msgid "Dashboard"
+msgstr "Escritorio"
+
+#. module: website_myaccount_subscription
+#: view:website:website_myaccount_subscription.subscriptions
+msgid "Expires on"
+msgstr "Expira el"
+
+#. module: website_myaccount_subscription
+#: view:website:website_myaccount_subscription.subscriptions
+msgid "Hired on"
+msgstr "Contratado el"
+
+#. module: website_myaccount_subscription
+#: view:website:website_myaccount.menu
+#: view:website:website_myaccount_subscription.subscriptions
+msgid "Subscriptions"
+msgstr "Suscripciones"
+
+#. module: website_myaccount_subscription
+#: view:website:website_myaccount_subscription.subscriptions
+msgid "Training"
+msgstr "Curso"
+
+#. module: website_myaccount_subscription
+#: view:website:website_myaccount_subscription.subscriptions
+msgid "days"
+msgstr "días"

@@ -20,7 +20,7 @@
 ###############################################################################
 
 {
-    'name': 'Política de Privacidad',
+    'name': 'Aceptación Política de Privacidad Contacto',
     'category': 'website',
     'summary': 'Añade un checkbox al formulario de contacto para aceptar la '
                'política de privacidad.',

@@ -42,6 +42,7 @@
         "website",
         "website_blog",
         "website_sale",
+        "website_sale_terms",
         "website_myaccount",
         "website_sale_product_public_name",
         "website_sale_product_sequences",

@@ -26,8 +26,8 @@
                                     <table class="table table-striped table-hover">
                                         <thead>
                                             <tr>
-                                                <th style="width: 50%;" class="text-center">Training</th>
-                                                <th style="width: 15%;" class="text-center">Hired on</th>
+                                                <th style="width: 40%;" class="text-center">Training</th>
+                                                <th style="width: 25%;" class="text-center">Hired on</th>
                                                 <th style="width: 35%;" class="text-center">Expires on</th>
                                             </tr>
                                         </thead>
@@ -37,7 +37,7 @@
                                                 <tr>
                                                     <td><a t-attf-href="/curso/#{ slug(subscription.training_id) }" t-esc="subscription.training_id.name"/></td>
                                                     <td class="text-center"><span t-field="subscription.date_init"/></td>
-                                                    <td class="text-center"><span t-field="subscription.date_end"/> (<span t-field="subscription.remaining_days"/> days)</td>
+                                                    <td class="text-center"><span t-field="subscription.date_end"/> (<span t-field="subscription.remaining_days"/> <span>days</span>)</td>
                                                 </tr>
                                             </t>
                                         </tbody>
