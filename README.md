@@ -93,3 +93,7 @@ Permite poner un nombre distinto a un producto para la tienda online *.
 Añade secuencia de ordenacion a las variantes de producto
 Secuencias de plantillas y variantes separadas.
 Fuerza el orden de los valores de los productos.
+
+```web_default_database ```
+====
+Permite establecer una BD por defecto
