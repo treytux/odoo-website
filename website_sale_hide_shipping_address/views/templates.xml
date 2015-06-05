@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <!-- Hide Shipping Address from Confirmation Step -->
+        <template id="cart" inherit_id="website_sale.cart">
+            <xpath expr="//*[contains(text(), 'Shipping')]" position="replace">
+                <li class="text-muted">Billing<span class="chevron"></span></li>
+            </xpath>
+        </template>
+
+        <!-- Hide Shipping Address from Confirmation Step -->
+        <template id="checkout" inherit_id="website_sale.checkout">
+            <xpath expr="//*[contains(text(), 'Shipping')]" position="replace">
+                <li class="text-primary">Billing<span class="chevron"></span></li>
+            </xpath>
+            <xpath expr="//*[contains(@name, 'shipping_id')]/.." position="attributes">
+                <attribute name="class">form-group col-lg-12 hidden</attribute>
+            </xpath>
+        </template>
+
+        <!-- Hide Shipping Address from Payment Step -->
+        <template id="payment" inherit_id="website_sale.payment">
+            <xpath expr="//*[contains(text(), 'Shipping')]" position="replace">
+                <a href="/shop/checkout" class="text-success">Billing<span class="chevron"></span></a>
+            </xpath>
+            <xpath expr="//*[contains(@id, 'right_column')]/t" position="replace">
+            </xpath>
+        </template>
+
+        <!-- Hide Shipping Address from Payment Step -->
+        <template id="confirmation" inherit_id="website_sale.confirmation">
+            <xpath expr="//*[contains(text(), 'Shipping')]" position="replace">
+                <li class="text-muted">Billing<span class="chevron"></span></li>
+            </xpath>
+            <xpath expr="//*[contains(@id, 'right_column')]/t" position="replace">
+            </xpath>
+        </template>
+
+    </data>
+</openerp>

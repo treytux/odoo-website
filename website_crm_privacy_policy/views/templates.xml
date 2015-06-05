@@ -21,6 +21,7 @@
                 <div t-attf-class="form-group #{error and 'terms' in error and 'has-error' or ''}">
                     <label class="col-md-3 col-sm-4 control-label" for="terms"></label>
                     <div class="col-md-7 col-sm-8">
+                        <p class="privacy-policy-msg bg-danger text-danger hidden">You should accept Privacy Policy before continue.</p>
                         <div class="checkbox">
                             <label>
                                 <input type="checkbox" name="privacy_policy" required="True"/> I have read and accept the <a href="/page/privacy-policy" title="Privacy Policy">Privacy Policy</a>.

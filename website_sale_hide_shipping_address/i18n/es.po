@@ -1,0 +1,29 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* website_sale_hide_shipping_address
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-06-05 02:32+0000\n"
+"PO-Revision-Date: 2015-06-05 04:33+0100\n"
+"Last-Translator: Trey <info@trey.es>\n"
+"Language-Team: Trey <info@trey.es>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+"Language: es_ES\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+#. module: website_sale_hide_shipping_address
+#: view:website:website_sale.cart view:website:website_sale.checkout
+#: view:website:website_sale.confirmation view:website:website_sale.payment
+msgid "Billing"
+msgstr "Facturación"
+
+#. module: website_sale_hide_shipping_address
+#: view:website:website_sale.checkout
+msgid "form-group col-lg-12 hidden"
+msgstr "form-group col-lg-12 hidden"

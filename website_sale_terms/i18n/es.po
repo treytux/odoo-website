@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-04 19:19+0000\n"
-"PO-Revision-Date: 2015-06-04 21:21+0100\n"
+"POT-Creation-Date: 2015-06-05 01:38+0000\n"
+"PO-Revision-Date: 2015-06-05 03:40+0100\n"
 "Last-Translator: Trey <info@trey.es>\n"
 "Language-Team: Trey <info@trey.es>\n"
 "MIME-Version: 1.0\n"
@@ -19,13 +19,8 @@ msgstr ""
 
 #. module: website_sale_terms
 #: view:website:website_sale.checkout
-msgid "Conditions of Sale"
-msgstr "Condiciones de Venta"
-
-#. module: website_sale_terms
-#: view:website:website_sale.checkout
 msgid "I have read and accept the"
-msgstr "He leído y acepto las"
+msgstr "He leído y acepto los"
 
 #. module: website_sale_terms
 #: view:website:website_sale.checkout
@@ -34,5 +29,19 @@ msgstr "Política de Privacidad"
 
 #. module: website_sale_terms
 #: view:website:website_sale.checkout
+msgid "Terms and Conditions of Sale"
+msgstr " Términos y Condiciones de Venta"
+
+#. module: website_sale_terms
+#: view:website:website_sale.checkout
+msgid ""
+"You should accept the Terms and Conditions of Sale and Privacy Policy before "
+"continue."
+msgstr ""
+"Debe aceptar los Términos y Condiciones de Venta así como la Política de "
+"Privacidad antes de continuar."
+
+#. module: website_sale_terms
+#: view:website:website_sale.checkout
 msgid "and the"
-msgstr "y la"
+msgstr "así como la"

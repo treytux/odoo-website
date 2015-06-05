@@ -19,10 +19,11 @@
         <template id="checkout" inherit_id="website_sale.checkout">
             <xpath expr="//*[contains(@class, 'a-submit')]/.." position="before">
                 <div class="row">
-                    <div t-attf-class="form-group #{error.get('checkout_policy') and 'has-error' or ''} col-lg-12 mb32">
+                    <div t-attf-class="form-group #{error.get('checkout_terms') and 'has-error' or ''} col-lg-12 checkout-policy mb32">
+                        <p class="checkout-policy-msg bg-danger text-danger hidden">You should accept the Terms and Conditions of Sale and Privacy Policy before continue.</p>
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" name="checkout_policy" required="True"/> I have read and accept the <a href="/page/conditions-of-sale" title="Conditions of Sale">Conditions of Sale</a> and the <a href="/page/privacy-policy" title="Privacy Policy">Privacy Policy</a>.
+                                <input type="checkbox" name="checkout_terms" required="True"/> I have read and accept the <a href="/page/conditions-of-sale" title="Terms and Conditions of Sale">Terms and Conditions of Sale</a> and the <a href="/page/privacy-policy" title="Privacy Policy">Privacy Policy</a>.
                             </label>
                         </div>
                     </div>

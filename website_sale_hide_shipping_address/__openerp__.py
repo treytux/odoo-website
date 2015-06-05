@@ -20,10 +20,10 @@
 ###############################################################################
 
 {
-    'name': 'Aceptación Condiciones de Venta',
+    'name': 'Ocultar Dirección Envío',
     'category': 'website',
-    'summary': 'Añade un checkbox en el proceso de compra para aceptar las '
-               'condiciones de venta y la política de privacidad.',
+    'summary': 'Oculta en el proceso de compra de la tienda online '
+               'la selección e información de la dirección de envío.',
     'version': '0.1',
     'description': """
     """,

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-02 10:51+0000\n"
-"PO-Revision-Date: 2015-06-02 12:52+0100\n"
+"POT-Creation-Date: 2015-06-05 03:06+0000\n"
+"PO-Revision-Date: 2015-06-05 05:07+0100\n"
 "Last-Translator: Trey <info@trey.es>\n"
 "Language-Team: Trey <info@trey.es>\n"
 "MIME-Version: 1.0\n"
@@ -19,29 +19,34 @@ msgstr ""
 
 #. module: website_myaccount_subscription
 #: view:website:website_myaccount_subscription.subscriptions
+msgid "Beginning"
+msgstr "Comienzo"
+
+#. module: website_myaccount_subscription
+#: view:website:website_myaccount_subscription.subscriptions
 msgid "Dashboard"
 msgstr "Escritorio"
 
 #. module: website_myaccount_subscription
 #: view:website:website_myaccount_subscription.subscriptions
-msgid "Expires on"
-msgstr "Expira el"
+msgid "Ending"
+msgstr "Finalización"
 
 #. module: website_myaccount_subscription
 #: view:website:website_myaccount_subscription.subscriptions
-msgid "Hired on"
-msgstr "Contratado el"
+msgid "Remaining"
+msgstr "Restan"
+
+#. module: website_myaccount_subscription
+#: view:website:website_myaccount_subscription.subscriptions
+msgid "Subscription"
+msgstr "Suscripción"
 
 #. module: website_myaccount_subscription
 #: view:website:website_myaccount.menu
 #: view:website:website_myaccount_subscription.subscriptions
 msgid "Subscriptions"
 msgstr "Suscripciones"
-
-#. module: website_myaccount_subscription
-#: view:website:website_myaccount_subscription.subscriptions
-msgid "Training"
-msgstr "Curso"
 
 #. module: website_myaccount_subscription
 #: view:website:website_myaccount_subscription.subscriptions
