@@ -97,3 +97,8 @@ Fuerza el orden de los valores de los productos.
 ```web_default_database ```
 ====
 Permite establecer una BD por defecto
+
+Blueprints
+==========
+- Implementación [Google Tag Manager](https://developers.google.com/tag-manager)
+- Implementación [Google Enhanced Ecommerce](https://developers.google.com/tag-manager/enhanced-ecommerce)
