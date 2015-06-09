@@ -85,7 +85,8 @@
             </t>
         </template>
 
-        <template id="addresses">
+<!--
+         <template id="addresses">
             <t t-call="website.layout">
                 <div id="wrap" class="js_sale">
                     <div class="oe_structure"/>
@@ -133,7 +134,7 @@
                 </div>
             </t>
         </template>
-
+ -->
 
     </data>
 </openerp>

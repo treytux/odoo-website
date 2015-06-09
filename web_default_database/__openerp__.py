@@ -30,9 +30,14 @@
 
     Install
     =======
-    Add 'db_default' option in config file openerp-server.conf and run
+    Add 'db_defaults' option in config file openerp-server.conf and run
     "openerp-server" command with argument
     --load=web,web_kanban,web_default_database
+
+    db_defaults setup a DATABASE for a DOMAIN or a part. Example:
+
+        db_defaults = DOMAIN:DB,DOMAIN:DB,...
+        db_defaults = demo.trey.es:db_demo,test.:db_test,.trey.es:db_public
 
     Enjoy
     ''',
