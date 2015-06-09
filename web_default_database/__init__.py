@@ -2,7 +2,6 @@
 # License, author and contributors information in:
 # __openerp__.py file at the root folder of this module.
 from openerp import http, tools
-import json
 import logging
 _log = logging.getLogger(__name__)
 
