@@ -32,7 +32,7 @@ if tools.config.get('db_defaults', None):
                     return rule[1]
 
             _log.error('Default database %s not exists!!!' %
-                       tools.config['db_default'])
+                       tools.config['db_defaults'])
 
             if len(dbs) == 1:
                 return dbs[0]
