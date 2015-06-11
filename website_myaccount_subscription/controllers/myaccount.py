@@ -14,10 +14,13 @@ class MyAccount(http.Controller):
             return user.partner_id
         else:
             partner = user.partner_id
-            while partner.parent_id:
-                partner = partner.parent_id
-                if partner.is_company:
-                    return partner
+            if partner.parent_id:
+                while partner.parent_id:
+                    partner = partner.parent_id
+                    if partner.is_company:
+                        return partner
+            else:
+                return partner
         return None
 
     @http.route(['/myaccount/subscriptions'],

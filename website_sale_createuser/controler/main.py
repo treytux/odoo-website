@@ -36,10 +36,8 @@ class WebsiteSale(main.website_sale):
             if request.uid != request.website.user_id.id:
                 partner = self.get_partner_company()
                 if partner and partner.id == order.partner_id.id:
-                    return request.website.render("website_sale.confirmation", {'order': order})
-                    # return request.redirect('/shop')
-                    # return res
-
+                    return request.website.render(
+                        "website_sale.confirmation", {'order': order})
             else:
                 value = {
                     'name': order.partner_id.name,
@@ -47,8 +45,7 @@ class WebsiteSale(main.website_sale):
                     'partner_id': order.partner_id.id,
                     'in_group_2': True,
                     'share': True,
-                    }
+                }
                 user = request.env['res.users'].sudo().create(value)
-                return request.website.render("website_sale.confirmation", {'order': order})
-                # return request.redirect('/shop')
-                # return res
+                return request.website.render(
+                    "website_sale.confirmation", {'order': order})

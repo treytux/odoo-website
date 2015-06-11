@@ -35,7 +35,9 @@
                                                 <td><span t-field="order.date_order"/></td>
                                                 <td>Shipping</td>
                                                 <td><span t-field="order.amount_total"/></td>
-                                                <td><a target="_blank" t-att-href="'/report/pdf/sale.report_saleorder/%s' % order.id">Download</a></td>
+                                                <!--<td><a target="_blank" t-att-href="'/report/pdf/sale.report_saleorder/%s' % order.id">Download</a></td>-->
+                                                <td><a t-att-href="'/myaccount/order/download/%s' % order.id">Download</a></td>
+
                                             </tr>
                                         </t>
                                     </tbody>
