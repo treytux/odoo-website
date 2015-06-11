@@ -44,6 +44,12 @@ class WebsiteSale(main.website_sale):
                     'login': order.partner_id.email,
                     'partner_id': order.partner_id.id,
                     'in_group_2': True,
+                    'in_group_11': False,
+                    'sel_groups_24_25_26': 0,
+                    'sel_groups_5': 0,
+                    'sel_groups_22_23': 0,
+                    'sel_groups_21': 0,
+                    'sel_groups_3_4': 0,
                     'share': True,
                 }
                 user = request.env['res.users'].sudo().create(value)
